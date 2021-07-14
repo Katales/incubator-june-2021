@@ -54,30 +54,66 @@ let simpsons = [
 // -------------------------- template 2.1 --------------------------
 document.write(`<div class="Screen flxCol flxAcrCenter">`);
 for (let el of simpsons) {
-    document.write(`<div class="cardPersH w100prc flxRow">`);
-    document.write(`    <div class="descrPers w70prc flxCol">`);
-    document.write(`        <p> Name:       <span>${el.name}</span></p>`);
-    document.write(`        <p> Surname:    <span>${el.surname}</span></p>`);
-    document.write(`        <p> Age:        <span>${el.age}</span></p>`);
-    document.write(`        <p> info:       <span>${el.info}</span></p>`);
-    document.write(`    </div>`);
-    document.write(`    <div class="flxCol w30prc flxCenter">`);
-    document.write(`        <img src="${el.photo}" alt="">`);
-    document.write(`    </div>`);
-    document.write(`</div>`);
+    document.write(`<div class="cardPersH w100prc flxRow">
+                        <div class="descrPers w70prc flxCol">
+                            <p> Name:       <span>${el.name}</span></p>
+                            <p> Surname:    <span>${el.surname}</span></p>
+                            <p> Age:        <span>${el.age}</span></p>
+                            <p> info:       <span>${el.info}</span></p>
+                        </div>
+                        <div class="flxCol w30prc flxCenter">
+                            <img src="${el.photo}" alt="">
+                        </div>
+                    </div>`);
 }
 document.write(`</div>`);
 
 // -------------------------- template 2.2 --------------------------
 document.write(`<div class="Screen flxRow wrap">`);
 for (let el of simpsons) {
-    document.write(`<div class="cardPersV flxCol">`);
-    document.write(`    <div class="descrPers2  flxCol">`);
-    document.write(`    <h2>${el.name} ${el.surname}. Age is - ${el.age}</h2>`);
-    document.write(`    <p>${el.info}</p>`);
-    document.write(`    </div>`);
-    document.write(`    <img src="${el.photo}" alt="">`);
-    document.write(`</div>`);
+    document.write(`<div class="cardPersV flxCol">
+                        <div class="descrPers2  flxCol">
+                            <h2>${el.name} ${el.surname}. Age is - ${el.age}</h2>
+                            <p>${el.info}</p>
+                        </div>
+                        <img src="${el.photo}" alt="">
+                    </div>`);
+}
+document.write(`</div>`);
+
+// Використовуючи данні з масиву, за допомоги document.write
+// побудувати структуру по шаблону template3.1 Зробити адекватну стилізацію
+// Великими літерами прописанні властивості об'єкту які потрібно впровадити в шаблон
+let products = [
+    {
+        title: 'milk',
+        price: 22,
+        image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+    },
+    {
+        title: 'juice',
+        price: 27,
+        image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+    },
+    {
+        title: 'tomato',
+        price: 47,
+        image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+    },
+    {
+        title: 'tea',
+        price: 15,
+        image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+    },
+];
+
+// -------------------------- template 3.1 --------------------------
+document.write(`<div class="Screen flxRow wrap">`);
+for (let product of products) {
+    document.write(`<div class="product-card">
+                        <h3 class="product-title">${product.title}. Price - ${product.price}</h3>
+                        <img src="${product.image}" alt="" class="product-image">
+                    </div>`);
 }
 document.write(`</div>`);
 
