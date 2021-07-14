@@ -1,0 +1,33 @@
+.Screen {
+    margin-top: 60px;
+}
+
+/*----------- template 1.1 -------------*/
+.post-card {
+    width: 19%;
+    min-width: 200px;
+    height: 300px;
+    border: cornflowerblue 1px solid;
+    border-radius: 7px;
+    box-shadow: 5px 5px 3px #ced8e1;
+    background: lavender;
+    padding: 10px 7px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.post-card > h3 {
+    max-height: 32%;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: black 1px dotted;
+    overflow: auto;
+}
+
+.post-card > p {
+    height: 68%;
+    overflow: auto;
+}
+
+
