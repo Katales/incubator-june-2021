@@ -1,0 +1,22 @@
+.zone {
+    background: grey;
+    margin: 3px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#zoneA {
+    height: 150px;
+}
+
+#zoneBC {
+    height: 300px;
+    display: flex;
+}
+
+#zoneB {
+    width: 60%;
+}
+#zoneC {
+    width: 40%;
+}

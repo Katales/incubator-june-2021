@@ -1,0 +1,36 @@
+.area {
+    border: 2px solid black;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.post {
+    height: 50%;
+    background: lightskyblue;
+}
+
+#Header {
+    height: 100px;
+    background: khaki;
+}
+
+#Corps {
+    height: 400px;
+    display: flex;
+}
+
+#Menu {
+    width: 30%;
+    background: lightsalmon;
+}
+
+#Posts {
+    width: 70%;
+    display: block;
+
+}
+
+#Footer {
+    height: 100px;
+    background: cornsilk;
+}

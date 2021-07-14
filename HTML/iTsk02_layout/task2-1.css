@@ -1,0 +1,42 @@
+.area {
+    border: 2px solid black;
+    margin: 7px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.area > p {
+    margin: 0px;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+#Header {
+    height: 100px;
+    background: #e6f7b0;
+}
+#Corps {
+    height: 400px;
+    display: flex;
+    /*border: 1px solid tomato;*/
+}
+#Menu {
+    width: 30%;
+    background: violet;
+}
+
+#Posts {
+    width: 70%;
+    height: 400px;
+    display: block;
+    /*border: 1px solid green;*/
+}
+.post {
+    height: 189px;
+    background: lightskyblue;
+}
+
+#Footer {
+    height: 100px;
+    background: cornsilk;
+}

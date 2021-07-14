@@ -1,0 +1,41 @@
+body {
+    width: 900px;
+    border: solid 5px;
+    border-color: red;
+}
+
+.hdr {
+    width: 800px;
+    border: solid 5px;
+    border-color: green;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    width: 800px;
+    border: solid 5px;
+    border-color: rgb(255, 255, 0);
+
+}
+
+img {
+    height: 100px;
+    border: solid 5px;
+    border-color: pink;
+}
+
+ul {
+    width: 700px;
+    border: solid 5px;
+    border-color: skyblue;
+
+}
+
+ul li {
+    width: 650px;
+    border: solid 5px;
+    border-color: blue;
+}

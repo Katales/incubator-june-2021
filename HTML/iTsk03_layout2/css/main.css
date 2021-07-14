@@ -1,0 +1,84 @@
+body * {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+body p {
+    margin: 5px 0 0 0;
+}
+
+body h3 {
+    margin: 25px 0 0 0;
+}
+
+body h4 {
+    margin: 25px 0 10px 0;
+}
+
+body h5 {
+    margin: 5px 0 3px 0;
+}
+
+#corps {
+    min-width: 795px;
+    height: 1185px;
+}
+
+#sideA {
+    width: 50%;
+    justify-content: space-between;
+}
+
+#sideB {
+    width: 50%;
+    justify-content: space-between;
+    margin: 0 0 0 10px;
+}
+
+.cardVM {
+    width: 24%;
+    margin-top: 7px;
+    /* -----------------for DEBUG */
+    /*border: 1px solid tomato;*/
+}
+
+.cardVL {
+    width: 48%;
+    margin-top: 12px;
+    /* -----------------for DEBUG */
+    /*border: 1px solid tomato;*/
+}
+
+.zonePrp {
+    width: 64%;
+    margin-top: 4px;
+}
+
+.zoneDrk {
+    width: 35%;
+    margin-top: 4px;
+}
+
+#caroselFrm {
+    width: 80%;
+}
+
+.caroselEl {
+    width: 31%;
+}
+
+#r2c1B {
+    width: 48%;
+}
+
+#r2c2B {
+    width: 48%;
+}
+
+.rect2 {
+    margin: 4px 0;
+}
+
+.fas .fa-bars {
+    margin-left: 10px;
+}

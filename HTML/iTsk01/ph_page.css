@@ -1,0 +1,12 @@
+body    {
+    background: black;
+}
+
+div {
+    width:  900px;
+    margin: auto;
+}
+img {
+    width: inherit;
+    object-fit: contain;
+}

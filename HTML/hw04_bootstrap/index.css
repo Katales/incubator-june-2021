@@ -1,0 +1,48 @@
+#corp {
+    border: 2px solid tomato;
+    padding: 10px;
+    display: flex;
+}
+
+.yl_part {
+    border: 2px solid gold;
+    padding: 9px;
+}
+
+#part1 {
+    width: 35%;
+    margin: 0px 5px 0px 0px;
+}
+
+#part2 {
+    width: 65%;
+    /* padding-top: 55px; */
+}
+
+h1 {
+    border: 2px solid darkorange;
+}
+
+p {
+    border: 2px solid green;
+    padding: 17px 5px;
+}
+
+#card {
+    width: 75%;
+}
+
+#cardImgDiv {
+    border: 2px solid darkorchid;
+    padding: 10px;
+}
+
+img {
+    opacity: 20%;
+}
+
+div.card-body {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+

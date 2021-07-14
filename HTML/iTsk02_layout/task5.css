@@ -1,0 +1,34 @@
+.blueA {
+    margin: 5px;
+    background: steelblue;
+    font-size: x-large;
+}
+
+.navyA {
+    width: 33%;
+    margin: 5px;
+    background: navy;
+    font-size: small;
+}
+
+#corps {
+    height: 800px;
+}
+#Widgets {
+    margin-bottom: 3px;
+    height: 25%;
+}
+
+#r2 {
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#Contacts {
+    height: 50%;
+}
+
+.centeredflex > p {
+    color: oldlace;
+}

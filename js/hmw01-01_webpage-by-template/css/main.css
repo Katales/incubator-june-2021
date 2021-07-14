@@ -1,0 +1,89 @@
+body > ul:nth-of-type(1) {
+    margin: 50px 0 0 100px;
+    font-size: 20px;
+}
+
+.Screen {
+    margin-top: 60px;
+}
+
+/*----------- template 2.1 -------------*/
+.cardPersH {
+    width: 100%;
+    min-width: 660px;
+    max-width: 1100px;
+    height: 430px;
+    border: cornflowerblue 1px solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 3px #ced8e1;
+    background: cornsilk;
+    padding: 10px 3px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+.descrPers {
+    padding: 10px 5px 7px 15px;
+    overflow: auto;
+}
+.descrPers > * {
+    font-size: 19px;
+    line-height: 1.6;
+    text-align: justify;
+}
+.descrPers > p > span {
+    font-weight: 700;
+}
+.cardPersH > div >img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/*----------- template 2.2 -------------*/
+.cardPersV {
+    width: 49%;
+    min-width: 400px;
+    max-width: 460px;
+    height: 900px;
+    padding: 10px 3px;
+    margin: 30px 30px 0 0;
+    border: cornflowerblue 1px solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 3px #ced8e1;
+    background: lightgoldenrodyellow;
+}
+.descrPers2 {
+    height: 50%;
+    padding: 10px 10px 10px 10px;
+}
+.descrPers2 > p {
+    margin-top: 15px;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: justify;
+    overflow: auto;
+}
+.cardPersV > img {
+    min-height: 50%;
+    object-fit: contain;
+}
+
+/*----------- template 3.1 -------------*/
+.product-card {
+    height: 300px;
+    width: 300px;
+    border: #54d5eb 2px dot-dot-dash;
+    border-radius: 7px;
+    background: #ccdef2;
+    margin: 0 15px 15px 0 ;
+
+}
+.product-card > h3 {
+    color: navy;
+    padding: 7px 10px 10px 10px;
+}
+.product-card > img {
+    width: inherit;
+    height: 80%;
+    object-fit: contain;
+}

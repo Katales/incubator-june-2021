@@ -1,0 +1,59 @@
+body {
+    min-width: 660px;
+    max-width: 900px;
+}
+
+body p {
+    margin: 5px 0 0 0;
+}
+
+h5 {
+    margin: 15px 0 10px 0;
+}
+
+#corps {
+    width: 100%;
+    overflow: hidden;
+}
+
+#r2 {
+    padding-top: 5%;
+}
+
+.cardVM {
+    margin-top: 7px;
+}
+
+.cardVL {
+    margin-top: 12px;
+}
+
+.rect1 {
+    margin-right: 2%;
+    min-width: 48%;
+    min-height: 204px;
+    box-sizing: border-box;
+}
+
+.posRel_slider {
+    position: relative;
+    left: -24%;
+}
+
+.posRel_arrows {
+    position: relative;
+    left: 47%;
+    bottom: -18%;
+}
+
+.rect2 {
+    margin: 7px 0;
+}
+
+.fas .fa-bars {
+    margin-left: 10px;
+}
+
+div.circled ~ * {
+    color: black;
+}

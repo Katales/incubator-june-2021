@@ -1,0 +1,40 @@
+.blueA {
+    margin: 5px;
+    background: steelblue;
+    font-size: x-large;
+}
+.vis {
+    margin: 5px;
+    background: navy;
+    font-size: small;
+}
+.flexSB {
+    display: flex;
+    justify-content: space-between;
+}
+.centeredflex > p {
+    color: oldlace;
+}
+
+#corps {
+    height: 800px;
+}
+#r1 {
+    margin-bottom: 3px;
+    height: 50%;
+}
+#r1 > div {
+    width: 50%;
+}
+
+#Kabobs {
+    height: 25%;
+}
+
+#r3 {
+    height: 25%;
+}
+
+#r3 > div {
+    width: 33%;
+}

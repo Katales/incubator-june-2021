@@ -1,0 +1,30 @@
+
+.corpus {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+}
+
+.item {
+    width: 230px;
+    height: 350px;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    border: solid grey 1px;
+    border-radius: 3%;
+    text-align: center;
+    box-sizing: content-box;
+}
+img {
+    width: inherit;
+    height: 90%;
+    object-fit: contain;
+    vertical-align: top;
+}
+
+h5 {
+    margin: 5px 0px;
+    font-weight: normal;
+}
+

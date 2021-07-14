@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- homework #01, js lesson01-->
+
+<script>
+    // - Створити змінні. Присвоїти кожному з них значення:
+    //     'hello','owu','com', 'ua', 1, 10, -999, 123, 3.14, 2.7, 16, true, false.
+    //     Вивести кожну змінну за допомогою: console.log , alert, document.write
+    let strVar1  = 'hello';
+    let dname_l3 = 'owu';
+    let dname_l2 = 'com';
+    let dname_l1 = 'ua';
+    let intVar1  = 1;
+    let intVar2  = 10;
+    let intVar3  = -999;
+    let intVar4  = 123;
+    let varPi    = 3.14;
+    let num1     = 2.7;
+    let intVar5  = 16;
+    let bool1    = true;
+    let bool0    = false;
+
+    outputVars();
+
+    function outputVars() {
+        console.log(strVar1);
+        console.log(dname_l3);
+        console.log(dname_l2);
+        console.log(dname_l1);
+        console.log(intVar1);
+        console.log(intVar2);
+        console.log(intVar3);
+        console.log(intVar4);
+        console.log(varPi);
+        console.log(num1);
+        console.log(intVar5);
+        console.log(bool1);
+        console.log(bool0);
+
+        alert(strVar1);
+        alert(dname_l3);
+        alert(dname_l2);
+        alert(dname_l1);
+        alert(intVar1);
+        alert(intVar2);
+        alert(intVar3);
+        alert(intVar4);
+        alert(varPi);
+        alert(num1);
+        alert(intVar5);
+        alert(bool1);
+        alert(bool0);
+
+        document.writeln(strVar1);
+        document.writeln(dname_l3);
+        document.writeln(dname_l2);
+        document.writeln(dname_l1);
+        document.writeln(intVar1);
+        document.writeln(intVar2);
+        document.writeln(intVar3);
+        document.writeln(intVar4);
+        document.writeln(varPi);
+        document.writeln(num1);
+        document.writeln(intVar5);
+        document.writeln(bool1);
+        document.writeln(bool0);
+    }
+
+    // Переприсвоїти кожну змінну з завдання вище на будь які довільні значення.
+    //   Вивести кожну змінну за допомогою: console.log , alert, document.write
+    strVar1  = 'hithere!';
+    dname_l3 = "my";
+    dname_l2 = "rozetka";
+    dname_l1 = "ua";
+    intVar1  = 7;
+    intVar2  = 14;
+    intVar3  = 100500;
+    intVar4  = -17;
+    varPi    = 3.14159;
+    num1     = 1.3333;
+    intVar5  = 64;
+    bool1    = isNaN(varPi);
+    bool0    = isFinite(intVar5);
+
+    outputVars();
+
+    // - Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ. Зконкатенувати їх в одну змінну person.
+    let firstName = 'Oleksiy';
+    let middleName = 'Volodymyrovych';
+    let lastName = 'Slisenko';
+    let person = firstName + ' ' + middleName + ' ' + lastName;
+
+    // - За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками.
+    // Вивести "Вітаю *Імя* *По батькові*. Тобі *вік* років".
+    firstName = prompt('Pls, enter your first name : ');
+    middleName = prompt('Pls, enter your father\'s name : ');
+    age = prompt('Pls, enter your age : ');
+    alert(`Hi ${firstName} ${middleName}. You're ${age} years old.`);
+
+    // - За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
+    //   let a = 100; let b = '100'; let c = true;
+    let a = 100;
+    let b = '100';
+    let c = true;
+    console.log(typeof a);
+    console.log(typeof b);
+    console.log(typeof c);
+
+    // - Поставет відповідний оператор в виразах що б вийшов відповідний результат.
+    //     В однакових виразаї не використовувати однакові оператори!!!
+    console.log('5 % 6 -> ' + (5 != 6) );
+    console.log('5 > 6 -> ' + (5 > 6) );
+    console.log('5 == 6 -> ' + (5 == 6) );
+    console.log('5 >= 6 -> ' + (5 >= 6) );
+    console.log('10 == 10 -> ' + (10 == 10) );
+    console.log('10 >= 10 -> ' + (10 >= 10) );
+    console.log('10 < 10 -> ' + (10 < 10) );
+    console.log('10 > 10 -> ' + (10 > 10) );
+    console.log('10 != 10 -> ' + (10 != 10) );
+    console.log('123 === "123" ' + (123 === "123") );
+    console.log('123 == "123" ' + (123 == "123") );
+
+    // Додатково:
+    //     - Подивіться на наступні вирази і спробуйте вгадати яким буде вивід в консоль. Перевірте себе.
+    console.log(132 > 100 && 45 < 12 );     // expected: false
+    console.log(34 > 33 && 23 < 90 );       // expected: true
+    console.log(99 > 100 && 45 > 12 );      // expected: false
+    console.log(132 > 100 || 45 < 12 );     // expected: true
+    console.log(111 > 11 || 45 < 111 );     // expected: true
+    console.log((111 > 11 || 45 < 111) && (132 > 100 || 45 < 12) );     // expected: true
+    console.log((111 > 11 || 45 < 56) || (132 > 100 || 45 < 12) );      // expected: true
+    console.log((132 > 100 && 45 < 12 ) && (132 > 100 || 45 < 12 ) );   // expected: false
+    console.log((111 > 11 || 45 < 111) || (99 > 100 && 45 > 12 ));      // expected: true
+    console.log(!!'-1');        // expected: true
+    console.log(!!-1);          // expected: true
+    console.log(!!'0');         // expected: true
+    console.log(!!'null');      // expected: true
+    console.log(!!'undefined'); // expected: true
+    console.log(!!(3/'owu'));   // expected: false
+    console.log((111 > 11 || 45 < 111) ||  !!'0'); // expected: true
+    console.log((!!111 == !!11 || 45 < 111) && (99 > 100 && 45 > 12 )); // expected: false
+
+</script>
+
+</body>
+</html>

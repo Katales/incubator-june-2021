@@ -1,0 +1,74 @@
+.vis {
+    margin: 3px;
+    font-size: larger;
+    color: oldlace;
+    flex-flow: column;
+}
+.flexRSB {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.flexCSB {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+.vis > div {
+    width: 60%;
+    font-size: small;
+    text-align: center;
+}
+
+#corps {
+    height: 800px;
+}
+
+#header {
+    height: 10%;
+    background: #54d5eb;
+}
+
+#r1 {
+    height: 75%;
+}
+#r1c1 {
+    width: 30%;
+}
+#hero {
+    height: 40%;
+    background: #d7c9e3;
+}
+#sidebar {
+    height: 60%;
+    background: #9fc363;
+}
+
+#r1c2 {
+    width: 70%;
+}
+#mainC {
+    height: 75%;
+    background: #f5c632;
+}
+#extraC {
+    height: 25%;
+    background: #898989;
+}
+
+#r2 {
+    height: 15%;
+}
+#relatedI {
+    width: 75%;
+    background: #2bb673;
+}
+#relatedP {
+    width: 25%;
+    background: #f3ccde;
+}
+
+#footer {
+    height: 10%;
+    background: #fea500;
+}

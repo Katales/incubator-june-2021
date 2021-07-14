@@ -1,0 +1,162 @@
+.flxRow {
+    display: flex;
+    flex-flow: row;
+}
+
+.flxCol {
+    display: flex;
+    flex-flow: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.flxCenter {
+    align-items: center;
+    justify-content: center;
+}
+
+.flxCenterSB {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flxSB {
+    justify-content: space-between;
+}
+
+.relatTop30 {
+    position: relative;
+    top: 30px;
+}
+
+.txtCenter {
+    text-align: center;
+}
+
+.txtRight {
+    text-align: right;
+}
+
+.bkgWht {
+    background: aliceblue;
+}
+
+.bkgPrp {
+    background: slateblue;
+}
+
+.bkgDrk {
+    background: black;
+}
+
+.clrPrp {
+    color: slateblue;
+}
+
+.clrDrk {
+    color: black;
+}
+
+.w60px {
+    width: 60px;
+}
+
+.h0_5 {
+    min-height: 24px;
+    max-height: 24px;
+}
+
+.h0_75 {
+    min-height: 36px;
+    max-height: 24px;
+}
+
+.h1 {
+    min-height: 46px;
+    max-height: 46px;
+}
+
+.h1_5 {
+    min-height: 70px;
+    max-height: 70px;
+}
+
+.h2 {
+    min-height: 96px;
+    max-height: 96px;
+}
+
+.h2_5 {
+    min-height: 120px;
+    max-height: 120px;
+}
+
+.h3 {
+    min-height: 140px;
+    max-height: 140px;
+}
+
+.lrPadding {
+    padding: 0 5% 0 5%;
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+.roundedS {
+    border-radius: 3px;
+}
+
+.circled {
+    border-radius: 50%;
+}
+
+/* -----------------for DEBUG */
+/*.borderRed {*/
+/*    border: 1px solid tomato;*/
+/*}*/
+/*------------- !!!!!!!!!!!!!*/
+
+.sqrL {
+    margin: 5px;
+    min-width: 66px;
+    min-height: 66px;
+}
+
+.sqrM {
+    margin: 5px;
+    min-width: 51px;
+    min-height: 51px;
+}
+
+.sqrS {
+    margin: 5px;
+    min-width: 13px;
+    min-height: 13px;
+}
+
+.button1 {
+    margin: 5px 0px;
+    width: 58px;
+    height: 16px;
+    border-radius: 28px;
+}
+
+.txtL {
+    font-size: large;
+}
+
+.txtS {
+    font-size: small;
+}
+
+.txtXS {
+    font-size: x-small;
+}
+
+.txtXXS {
+    font-size: xx-small;
+}

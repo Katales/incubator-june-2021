@@ -1,0 +1,35 @@
+.zone {
+    background: lightgrey;
+    margin: 3px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.zone {
+    margin: 2px;
+    border-radius: 5px;
+}
+.zone > div > p {
+    color: darkslategrey;
+    font-size: 20px;
+}
+
+#corps {
+    border: 3px solid darkgray;
+    border-radius: 9px;
+    padding: 5px;
+}
+#zoneA {
+    height: 150px;
+}
+
+#zoneBC {
+    height: 300px;
+    display: flex;
+}
+
+#zoneB {
+    width: 60%;
+}
+#zoneC {
+    width: 40%;
+}

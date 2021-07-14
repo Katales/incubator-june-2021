@@ -1,0 +1,27 @@
+.header {
+    text-align: center;
+}
+.corpus {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.item {
+    width: 250px;
+    height: 350px;
+    display: block;
+    padding: 5px;
+    border: solid grey 2px;
+    border-radius: 3%;
+    text-align: center;
+    box-sizing: content-box;
+}
+p {
+    margin: 5px 0px;
+}
+
+img {
+    width: inherit;
+    object-fit: contain;
+}
+

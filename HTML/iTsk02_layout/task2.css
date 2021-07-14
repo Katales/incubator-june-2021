@@ -1,0 +1,39 @@
+.area {
+    margin: 0px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#Header {
+    height: 70px;
+    background: steelblue;
+}
+
+#Nav {
+    height: 50px;
+    background: navy;
+}
+
+#Corps {
+    height: 300px;
+    display: flex;
+}
+
+#Main {
+    width: 70%;
+    background: dodgerblue;
+}
+#Aside {
+    width: 30%;
+    background: royalblue;
+}
+#Footer {
+    height: 50px;
+    background: lightskyblue;
+}
+
+.area > p {
+    margin: 0px;
+    color: oldlace;
+    font-size: larger;
+}
