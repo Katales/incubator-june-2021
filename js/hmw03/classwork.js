@@ -42,7 +42,7 @@ console.log('- створити функцію яка повертає найб�
 
 function maxNumOfArr(arr) {
     let max = arr[0];
-    for (el of arr) {
+    for (let el of arr) {
         max = (el > max ? el : max);
     }
     return max;
@@ -59,7 +59,7 @@ console.log('- створити функцію яка повертає найм�
 
 function minNumOfArr(arr) {
     let min = arr[0];
-    for (el of arr) {
+    for (let el of arr) {
         min = (el < min ? el : min);
     }
     return min;
@@ -76,7 +76,7 @@ console.log('- створити функцію яка приймає масив 
 
 function sumOfArr(arr) {
     let sum = 0;
-    for (el of arr) {
+    for (let el of arr) {
         sum += el;
     }
     return sum;
@@ -125,7 +125,7 @@ console.log('- Створити функцію яка приймає масив 
 
 const getAllKeys = function (arr) {
     let keys = [];
-    for (el of arr) {
+    for (let el of arr) {
         keys = keys.concat(Object.keys(el));
     }
     return keys;
@@ -146,8 +146,8 @@ console.log('- Створити функцію яка приймає масив 
 
 const getAllValues = function (arr) {
     let values = [];
-    for (el of arr) {
-        for (key of Object.keys(el)) {
+    for (let el of arr) {
+        for (let key of Object.keys(el)) {
             values.push(el[key]);
         }
     }
@@ -293,7 +293,7 @@ console.log('Initial array :');
 outpArr(arr);
 arr1 = [];
 
-for (el of arr) {
+for (let el of arr) {
     arr1.push(el);
 }
 
@@ -365,9 +365,9 @@ function createArr(type, length) {
 // Creates 1-d array filled with random values
 // type (string) - type of content [ 'number' | 'string' | 'boolean' | 'mixed' ]
 // length (number) - number of array elements
-    arr = [];
+    let arr = [];
     for (let i = 0; i < length; i++) {
-        typeNow = type;
+        let typeNow = type;
         if (type === 'mixed') {
             let dice = getRandInt(1);
             if (dice <= 3) {
@@ -388,7 +388,7 @@ function createArr(type, length) {
                 arr[i] = 'string value #' + dice2;
                 break;
             case 'boolean':
-                arr1[i] = (dice2 > 49);
+                arr[i] = (dice2 > 49);
                 break;
         }
     }
