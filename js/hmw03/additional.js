@@ -68,8 +68,14 @@ const normalizeName = function (name) {
     return res;
 }
 
+let normalized = function (name) {
+    return name.replace( /(\w)\s+(\w)/, '$1 $2').trim();
+}
+
+
 let n1 = '    Harry       Potter      '
 console.log('input name: ', n1);
+console.log(`[${normalized(n1)}]`);
 console.log('result name:', normalizeName(n1));
 
 let n2 = '    Ron       Whisley      '

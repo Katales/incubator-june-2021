@@ -1,375 +1,175 @@
-// - створити функцію яка приймає масив та виводить його
-console.log('- створити функцію яка приймає масив та виводить його');
 
-const outpArr = function (arr) {
-    for (let i = 0; i < arr.length; i++) {
-        console.log(`[${i}] ${arr[i]}`)
+// - створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
+// створити пустий масив, наповнити його 10 об'єктами Client
+// Взяти масив (Client []).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
+
+class Client {
+    constructor(id, name, surname, email, phone, order) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.order = order;
     }
 }
 
-arr1 = createArr('number', 7);
-outpArr(arr1);
+let clients = [
+    new Client(getRandInt(3), 'Serge', 'Adf', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 2, 4) ),
+    new Client(getRandInt(3), 'Alex', 'ZVD', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 5, 4)),
+    new Client(getRandInt(3), 'Igor', 'ADf', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 1, 4)),
+    new Client(getRandInt(3), 'Al', 'Dfa', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 1, 4)),
+    new Client(getRandInt(3), 'Steven', 'HGd', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 7, 4)),
+    new Client(getRandInt(3), 'Kirill', 'Eds', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 4, 4)),
+    new Client(getRandInt(3), 'Olga', 'Csd', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 3, 4)),
+    new Client(getRandInt(3), 'Roman', 'Wec', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 3, 4)),
+    new Client(getRandInt(3), 'Irina', 'Veb', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 1, 4)),
+    new Client(getRandInt(3), 'Zack', 'Zsa', `user${getRandInt(2)}@gml.com`, `+380 67 ${getRandInt(7)}`, createArr('number', 2, 4))
+];
+
+clients.sort(function (curr, next) {
+    return curr.order.length - next.order.length;
+})
 
 
-// - створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
-console.log('- створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)');
-
-const minNum = function () {
-    return minNumOfArr(arguments);
-}
-
-console.log('arguments: 5, 4, 1');
-console.log('result: ', minNum(5, 4, 1));
-console.log('arguments: 6, 21, 3, 4, 5, 4, 19');
-console.log('result: ', minNum(6, 21, 3, 4, 5, 4, 19));
-
-
-// - створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)
-console.log('- створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)');
-
-const maxNum = function () {
-    return maxNumOfArr(arguments);
-}
-
-console.log('arguments: 5, 4, 1');
-console.log('result: ', maxNum(5, 4, 1));
-console.log('arguments: 6, 21, 3, 4, 5, 4, 19');
-console.log('result: ', maxNum(6, 21, 3, 4, 5, 4, 19));
-
-
-// - створити функцію яка повертає найбільше число з масиву
-console.log('- створити функцію яка повертає найбільше число з масиву\n');
-
-function maxNumOfArr(arr) {
-    let max = arr[0];
-    for (let el of arr) {
-        max = (el > max ? el : max);
+// - Створити функцію конструктор яка дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+// -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+// -- info () - яка виводить всю інформацію про автомобіль
+// -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+// -- changeYear (newValue) - змінює рік випуску на значення newValue
+// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
+function Car (model, make, prodYear, maxSpeed, engineVol) {
+    this.model = model;
+    this.make = make;
+    this.prodYear = prodYear;
+    this.maxSpeed = maxSpeed;
+    this.engineVol = engineVol;
+    // methods
+    this.drive = function () {
+        console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
     }
-    return max;
-}
-
-testArr = createArr('number', 5);
-console.log('arguments:');
-outpArr(testArr)
-console.log('result: ', maxNumOfArr(testArr));
-
-
-// - створити функцію яка повертає найменьше число з масиву
-console.log('- створити функцію яка повертає найменьше число з масиву');
-
-function minNumOfArr(arr) {
-    let min = arr[0];
-    for (let el of arr) {
-        min = (el < min ? el : min);
+    this.info = function () {
+        console.log(`Model: ${this.model}, Make: ${this.make}, Production year: ${this.prodYear}, Maximum speed: ${this.maxSpeed}, Engine displacement: ${this.engineVol}`);
     }
-    return min;
-}
-
-testArr = createArr('number', 5);
-console.log('arguments:');
-outpArr(testArr)
-console.log('result: ', minNumOfArr(testArr));
-
-
-// - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
-console.log('- створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13');
-
-function sumOfArr(arr) {
-    let sum = 0;
-    for (let el of arr) {
-        sum += el;
+    this.increaseMaxSpeed = function (newSpeed) {
+        this.maxSpeed = newSpeed;
     }
-    return sum;
-}
-
-testArr = createArr('number', 3);
-console.log('arguments:');
-outpArr(testArr)
-console.log('result: ', sumOfArr(testArr));
-
-// - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
-console.log('- створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.');
-
-function averageOfArr(arr) {
-    return sumOfArr(arr) / arr.length;
-}
-
-testArr = createArr('number', 3);
-console.log('arguments:');
-outpArr(testArr)
-console.log('result: ', averageOfArr(testArr));
-
-
-// - створити функцію яка заповнює масив рандомними числами
-console.log('- створити функцію яка заповнює масив рандомними числами');
-
-const fillArrRandNums = function (arr) {
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = getRandInt(2);
+    this.changeYear = function (newYear) {
+        this.prodYear = newYear;
     }
-}
-
-testArr = [, , , ,];
-console.log('initial array length:', testArr.length);
-console.log('initial array:');
-outpArr(testArr);
-
-fillArrRandNums(testArr);
-
-console.log('result array :');
-outpArr(testArr);
-
-
-// - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
-console.log('- Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів');
-
-const getAllKeys = function (arr) {
-    let keys = [];
-    for (let el of arr) {
-        keys = keys.concat(Object.keys(el));
-    }
-    return keys;
-}
-
-testArr = [{name: 'Dima', age: 13}, {model: 'Camry'}];
-console.log('initial array:');
-console.log('  [{name: \'Dima\', age: 13}, {model: \'Camry\'}]');
-
-let keys = getAllKeys(testArr);
-
-console.log('result (array of keys) :');
-outpArr(keys);
-
-
-// - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
-console.log('- Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів');
-
-const getAllValues = function (arr) {
-    let values = [];
-    for (let el of arr) {
-        for (let key of Object.keys(el)) {
-            values.push(el[key]);
-        }
-    }
-    return values;
-}
-
-testArr = [{name: 'Dima', age: 13}, {model: 'Camry'}];
-console.log('initial array:');
-console.log('  [{name: \'Dima\', age: 13}, {model: \'Camry\'}]');
-
-let values = getAllValues(testArr);
-
-console.log('result (array of values) :');
-outpArr(values);
-
-
-// - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
-console.log('- створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.');
-
-const sum2vectors = function (arr1, arr2) {
-    let res = [];
-    for (let i = 0; i < arr1.length; i++) {
-        res[i] = arr1[i] + arr2[i];
-    }
-    return res;
-}
-
-vector1 = createArr('number', 5);
-vector2 = createArr('number', 5);
-console.log('Initial array #1 :');
-outpArr(vector1);
-console.log('Initial array #2 :');
-outpArr(vector2);
-
-console.log('resulted array :');
-outpArr(sum2vectors(vector1, vector2));
-
-
-// - Дан масив ['a', 'b', 'c']. Додайте йому в кінець елементи 1, 2, 3 за допомогою циклу.
-console.log('- Дан масив [\'a\', \'b\', \'c\']. Додайте йому в кінець елементи 1, 2, 3 за допомогою циклу.');
-
-arr = ['a', 'b', 'c'];
-for (let i = 1; i < 4; i++) {
-    arr.push(i);
-}
-
-console.log('result array :');
-outpArr(arr);
-
-
-// - Дан масив [1, 2, 3]. Зробіть з нього новий масив [3, 2, 1].
-console.log('- Дан масив [1, 2, 3]. Зробіть з нього новий масив [3, 2, 1].');
-
-arr = [1, 2, 3];
-arr1 = [];
-iterations = arr.length;
-for (let i = 0; i < iterations; i++) {
-    arr1.push(arr.pop());
-}
-
-console.log('new array :');
-outpArr(arr1);
-
-
-// - Дан масив [1, 2, 3]. Додайте йому в кінець елементи 4, 5, 6.
-console.log('- Дан масив [1, 2, 3]. Додайте йому в кінець елементи 4, 5, 6.');
-
-arr = [1, 2, 3];
-for (let i = 4; i < 7; i++) {
-    arr.push(i);
-}
-
-console.log('result array :');
-outpArr(arr);
-
-
-// - Дан масив [1, 2, 3]. Додайте йому в початок елементи 4, 5, 6.
-console.log('- Дан масив [1, 2, 3]. Додайте йому в початок елементи 4, 5, 6.');
-
-arr = [1, 2, 3];
-for (let i = 6; i > 3; i--) {
-    arr.unshift(i);
-}
-
-console.log('result array :');
-outpArr(arr);
-
-
-//
-//
-// - Дан масив [1, 2, 3, 4, 5]. Перетворіть масив в [4, 5].
-console.log('- Дан масив [1, 2, 3, 4, 5]. Перетворіть масив в [4, 5].');
-
-arr = [1, 2, 3, 4, 5];
-arr = arr.slice(3, 5);
-
-console.log('result array :');
-outpArr(arr);
-
-
-// - Дан масив [1, 2, 3, 4, 5]. Перетворіть масив в [1,2].
-console.log('- Дан масив [1, 2, 3, 4, 5]. Перетворіть масив в [1,2].');
-
-arr = [1, 2, 3, 4, 5];
-arr = arr.slice(0, 2);
-
-console.log('result array :');
-outpArr(arr);
-
-
-// - Дан масив [1, 2, 3, 4, 5]. Зробіть з нього масив [1, 2, 3, 'a', 'b', 'c'].
-console.log('- Дан масив [1, 2, 3, 4, 5]. Зробіть з нього масив [1, 2, 3, \'a\', \'b\', \'c\']');
-
-arr = [1, 2, 3, 4, 5];
-arr.splice(3, 2);
-for (let i = 97; i < 100; i++) {
-    arr.push(String.fromCharCode(i));
-}
-
-console.log('result array :');
-outpArr(arr);
-
-
-// - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
-console.log('- Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.');
-
-arr = createArr('number', 10);
-console.log('Initial array :');
-outpArr(arr);
-
-for (let el of arr) {
-    if (!(el % 2)) {
-        console.log('even element: ', el);
+    this.addDriver = function (driver) {
+        this.driver = driver;
     }
 }
 
 
-// - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу скопіювати значення одного масиву в інший.
-console.log('- Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу скопіювати значення одного масиву в інший.');
+// - (Те саме, тільки через клас)
+// Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+// -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+// -- info () - яка виводить всю інформацію про автомобіль
+// -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+// -- changeYear (newValue) - змінює рік випуску на значення newValue
+// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
+class  CarC {
+    constructor (model, make, prodYear, maxSpeed, engineVol) {
+        this.model = model;
+        this.make = make;
+        this.prodYear = prodYear;
+        this.maxSpeed = maxSpeed;
+        this.engineVol = engineVol;
+    }
 
-arr = createArr('number', 10);
-console.log('Initial array :');
-outpArr(arr);
-arr1 = [];
-
-for (let el of arr) {
-    arr1.push(el);
+    drive () {
+        console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+    }
+    info () {
+        console.log(`Model: ${this.model}, Make: ${this.make}, Production year: ${this.prodYear}, Maximum speed: ${this.maxSpeed}, Engine displacement: ${this.engineVol}`);
+    }
+    increaseMaxSpeed (newSpeed) {
+        this.maxSpeed = newSpeed;
+    }
+    changeYear (newYear) {
+        this.prodYear = newYear;
+    }
+    addDriver (driver) {
+        this.driver = driver;
+    }
 }
 
-console.log('result array :');
-outpArr(arr1);
 
-
-// - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
-console.log('- Дано масив: [ \'a\', \'b\', \'c\'] . За допомогою циклу for зібрати всі букви в слово.');
-
-arr = ['a', 'b', 'c'];
-let wrd = '';
-
-for (let i = 0; i < arr.length; i++) {
-    wrd += arr[i];
+// -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити 10 попелюшок , покласти їх в масив.
+// Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+//     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
+//     Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+class Cinderella {
+    constructor(name, age, foot) {
+        this.name = name;
+        this.age = age;
+        this.foot = foot;
+    }
 }
 
-console.log('result word : ', wrd);
+let cinderellas = [
+    new Cinderella('Ann', 22, 32),
+    new Cinderella('Kate', 32, 33),
+    new Cinderella('Lisa', 22, 35),
+    new Cinderella('Javelin', 22, 36),
+    new Cinderella('Ogre', 62, 45),
+    new Cinderella('Julitte', 22, 35),
+    new Cinderella('Sabrina', 22, 33),
+    new Cinderella('Jacline', 22, 31),
+    new Cinderella('Suse', 22, 34),
+    new Cinderella('Consta', 22, 34),
+];
 
-
-// - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
-console.log('- Дано масив: [ \'a\', \'b\', \'c\'] . За допомогою циклу while зібрати всі букви в слово.');
-
-arr = ['a', 'b', 'c'];
-wrd = '';
-
-let i = 0;
-while (i < arr.length) {
-    wrd += arr[i];
-    i++;
+class Prince {
+    constructor(name, age, shoeSizeFound) {
+        this.name = name;
+        this.age = age;
+        this.shoeSizeFound = shoeSizeFound;
+    }
 }
 
-console.log('result word : ', wrd);
+let princeFoo = new Prince('Edward', 31, 45);
 
-
-// - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
-console.log('- Дано масив: [ \'a\', \'b\', \'c\'] . За допомогою циклу for of зібрати всі букви в слово.');
-
-arr = ['a', 'b', 'c'];
-wrd = '';
-
-for (let el of arr) {
-    wrd += el;
+for (let cind of cinderellas) {
+    if (cind.foot === princeFoo.shoeSizeFound) {
+        console.log('Found cinderella that fits prince\'s criteria: ', cind);
+        break;
+    }
 }
 
-console.log('result word : ', wrd);
+console.log('(using .find()) right cinderella is:', cinderellas.find(function (cind){
+    return cind.foot === princeFoo.shoeSizeFound;
+}))
 
-// - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for in зібрати всі букви в слово.
-console.log('- Дано масив: [ \'a\', \'b\', \'c\'] . За допомогою циклу for in зібрати всі букви в слово.');
-
-arr = ['a', 'b', 'c'];
-wrd = '';
-
-for (let key in arr) {
-    wrd += arr[key];
-}
-
-console.log('result word : ', wrd);
 
 
 // -----------------------------------------------------
 //      auxiliary functions
 // -----------------------------------------------------
+function crLi(textLi, classesLi) {
+    return `<li class="${classesLi}"> ${textLi} </li>`
+}
+
+
 function getRandInt(digits) {
     return Math.floor(Math.random() * Math.pow(10, digits));
 }
 
-function createArr(type, length) {
+
+function createArr(type, length, digits) {
 // Creates 1-d array filled with random values
 // type (string) - type of content [ 'number' | 'string' | 'boolean' | 'mixed' ]
 // length (number) - number of array elements
+// digits - number of digits in a randomly generated integer value
     let arr = [];
+
     for (let i = 0; i < length; i++) {
         let typeNow = type;
-        if (type === 'mixed') {
-            let dice = getRandInt(1);
+        let dice = getRandInt(1);
+
+        if (typeNow === 'mixed') {
             if (dice <= 3) {
                 typeNow = 'number';
             } else if (dice <= 6) {
@@ -378,7 +178,7 @@ function createArr(type, length) {
                 typeNow = 'boolean';
             }
         }
-        let dice2 = getRandInt(2);
+        let dice2 = getRandInt(digits);
 
         switch (typeNow) {
             case 'number':
@@ -388,11 +188,23 @@ function createArr(type, length) {
                 arr[i] = 'string value #' + dice2;
                 break;
             case 'boolean':
-                arr[i] = (dice2 > 49);
+                arr[i] = (dice > 4);
                 break;
         }
     }
     return arr;
+}
+
+function outpArr(arr) {
+    if (typeof arr == 'object') {
+        for (let i = 0; i < arr.length; i++) {
+            console.log(JSON.stringify(arr[i]) );
+        }
+    }   else {
+        for (let i = 0; i < arr.length; i++) {
+            console.log(`[${i}]`, arr[i]);
+        }
+    }
 }
 
 // -----------------------------------------------------

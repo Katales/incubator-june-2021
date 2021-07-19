@@ -149,9 +149,9 @@ function createArr(type, length, digits) {
     let arr = [];
 
     for (let i = 0; i < length; i++) {
+        let dice = getRandInt(1);
         let typeNow = type;
         if (typeNow === 'mixed') {
-            let dice = getRandInt(1);
             if (dice <= 3) {
                 typeNow = 'number';
             } else if (dice <= 6) {
