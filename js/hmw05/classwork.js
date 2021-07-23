@@ -35,7 +35,7 @@ for (const el of elsA ) {
 
 // h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a
 for (const el of elsA ) {
-    el.classList.add('element_XXX');
+    el.classList.add(`element_${el.innerText}`);
 }
 
 // i) отримує всі елементи 'sub-header' та змінює колір фону. Фон отримати з prompt()
