@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <title>additional (lesson 05)</title>
 
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/bem.css">
 </head>
 <body>
 
+
+<div class="taskScreen">
+    <form name="form1" id="form1" action="index2.html">
+        <label>Enter the name : </label>
+        <input type="text" name="name">
+    </form>
+</div>
+
+<div class="taskScreen">
+    <form id="prodForm" name="prodForm" action="">
+        <label for="">Product's title : </label>
+        <input type="text" name="title">
+        <br>
+        <label for="">quantity :</label>
+        <input type="text" name="qnt">
+        <br>
+        <label for="">price :</label>
+        <input type="text" name="price">
+        <br>
+        <label for="">Image (http ref.):</label>
+        <input type="text" name="imgRef">
+        <br>
+    </form>
+    <div id="buttons" class="flxRow flxCenterSB">
+        <button id="btSave" class="button bkgBeg">Save product</button>
+        <button id="btList" class="button bkgBeg">View list</button>
+    </div>
+</div>
+
+
+<script src="additional_lib.js"></script>
 <script src="additional.js"></script>
 
 </body>

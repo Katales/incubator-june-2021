@@ -8,3 +8,28 @@
     font-size: 24px;
     line-height: 1.6;
 }
+
+.Screen {
+    margin-top: 60px;
+}
+
+.taskScreen {
+    margin-top: 15px;
+    padding: 20px 30px;
+    border: tomato solid 2px;
+    border-radius: 5px;
+    background: ivory;
+}
+
+#prodForm {
+    line-height: 1.9;
+
+}
+#buttons {
+    padding-top: 50px ;
+}
+
+/*.taskScreen > p:first-child {*/
+/*    font-style: italic;*/
+/*    margin-bottom: 30px;*/
+/*}*/

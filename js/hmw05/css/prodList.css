@@ -1,0 +1,49 @@
+.Screen {
+    margin-top: 60px;
+}
+
+.taskScreen {
+    margin-top: 15px;
+    padding: 20px 30px;
+    border: tomato solid 2px;
+    border-radius: 5px;
+    background: ivory;
+}
+
+.prodItem   {
+    margin-top: 10px;
+    padding: 2px;
+    height: 100px;
+    background: ivory;
+    border: tomato 1px solid;
+    border-radius: 3px;
+    box-shadow: 3px 3px lightgray;
+}
+.prodNum {
+    width:55px;
+}
+.prodBody {
+    width: 90%;
+    height: inherit;
+}
+.prodDesc {
+    min-width: 200px;
+}
+.prodImg {
+    height: inherit;
+    padding: 1px;
+}
+.prodImg > img {
+    height: 98%;
+    object-fit: scale-down;
+}
+.btnDel {
+    padding-top: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 1px;
+}
+/*.artPadding {*/
+/*   width: 100px;*/
+/*}*/
+
