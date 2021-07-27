@@ -29,6 +29,25 @@
     padding-top: 50px ;
 }
 
+.userBlock {
+    margin: 5px 10px 0 10px;
+    padding: 5px 10px;
+    border: black solid 2px;
+    border-radius: 5px;
+    background: darkseagreen;
+}
+
+.taskDelim {
+    border-bottom: 2px solid black;
+    margin: 30px 5px;
+}
+
+.dottedBorder {
+    border: black dotted 1px;
+    border-radius: 3px;
+    padding: 3px;
+    margin: 1px;
+}
 /*.taskScreen > p:first-child {*/
 /*    font-style: italic;*/
 /*    margin-bottom: 30px;*/

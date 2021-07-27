@@ -30,16 +30,26 @@
     min-width: 200px;
 }
 .prodImg {
-    height: inherit;
-    padding: 1px;
+    max-height: inherit;
+    margin: 2px;
+    overflow: hidden;
 }
 .prodImg > img {
-    height: 98%;
+    height: 100%;
     object-fit: scale-down;
 }
-.btnDel {
-    padding: 1px 15px;
+#btDel {
+    margin: 1px 15px;
 }
+
+.header {
+    margin: 20px 0;
+}
+.footer {
+    margin-top: 30px;
+}
+
+
 /*.artPadding {*/
 /*   width: 100px;*/
 /*}*/

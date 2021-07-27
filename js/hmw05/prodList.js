@@ -1,99 +1,84 @@
-// --------------   DEBUG data
-//     (uncomment the lines to substitute PRODUCTS array from Local Storage)
-// const productsDebug =  [
-//     {
-//         title: 'milk',
-//         price: 22,
-//         qnt: 55,
-//         imgRef: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
-//     },
-//     {
-//         title: 'juice',
-//         price: 27,
-//         qnt: 1,
-//         imgRef: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
-//     },
-//     {
-//         title: 'tomato',
-//         price: 47,
-//         qnt: 12,
-//         imgRef: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
-//     },
-//     {
-//         title: 'tea',
-//         price: 15,
-//         qnt: 5,
-//         imgRef: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
-//     },
-// ];
-//
-// localStorage.setItem(LSname, JSON.stringify(productsDebug));
+let products = JSON.parse(localStorage.getItem(LSname)) || []; // LSname declared in additional_lib.js
 
-// ---------- end of DEBUG data
-
-
-let productsJSON = localStorage.getItem(LSname); // LSname declared in additional_lib.js
-let products = [];
-if (productsJSON.trim() !== '') {
-    products = JSON.parse(productsJSON);
-} else {
-    alert('There are NO products saved !');
-}
-
-
-for (let i = 0; i < products.length; i++) {
-    appendProduct(i, products[i]);
-}
-
-function btnDelAll_click() {
-    products.splice(0, products.length);
+const prodList = document.getElementById('prodList');
+const btDelAll = document.getElementById('btDelAll');
+btDelAll.onclick = () => { // button "Delete all"
+    products = [];
     localStorage.setItem(LSname, '');
-    document.getElementById('prodItems').remove();
+    deleteAllProdEl();
+};
+const btBack = document.getElementById('btBack');
+btBack.onclick = () => {
+    history.back();
+};
+
+products.forEach(appendProduct);
+
+function deleteAllProdEl() {
+    while (prodList.firstChild) {
+        prodList.lastChild.remove()
+    }
 }
 
-function appendProduct(indProd, product) {
+function appendProduct(product) {
 
-    const elProd = document.createElement('div');
-    elProd.classList = 'prodItem flxRow flxAcrCenter';
-    document.getElementById('prodItems').appendChild(elProd);
+    let el0;
+    let el = crEl('div', '', 'prodItem flxRow flxAcrCenter');
+    {
+        let el = crEl('div', '', 'prodNum txtL txtBold flxCol flxCenter');
+        el.appendChild(crEl('p', '', '', product.id));
+        el0 = el;
+    }
+    el.appendChild(el0);
 
-    let el = crEl('div', 'prodNum txtL txtBold flxCol flxCenter', '');
-    elProd.appendChild(el);
-    el.appendChild(crEl('p', '', indProd + 1));
+    {
+        let el = crEl('div', '', 'prodBody flxRow');
+        {
+            let el = crEl('div', '', 'prodDesc flxCol flxAlgCenter txtL');
+            el.appendChild(crEl('p', '', 'txtBold', product.title));
+            el.appendChild(crEl('p', '', '', 'price : ' + product.price));
+            el.appendChild(crEl('p', '', '', 'quantity : ' + product.qnt));
+            el0 = el;
+        }
+        el.appendChild(el0);
 
-    el = crEl('div', 'prodBody flxRow', '');
-    elProd.appendChild(el);
-    let el1 = crEl('div', 'prodDesc flxCol flxAlgCenter txtL', '');
-    el.appendChild(el1);
-    el1.appendChild(crEl('p', '', product.title));
-    el1.appendChild(crEl('p', '', 'Price: ' + product.price));
-    el1.appendChild(crEl('p', '', 'Quantity: ' + product.qnt));
+        {
+            let el = crEl('div', '', 'prodImg');
+            {
+                let el = crEl('img');
+                let attr = document.createAttribute('src');
+                attr.value = product.imgRef;
+                el.setAttributeNode(attr);
+                el0 = el;
+            }
+            el.appendChild(el0);
+            el0 = el;
+        }
+        el.appendChild(el0);
+        el0 = el;
+    }
+    el.appendChild(el0);
 
-    el1 = crEl('div', 'prodImg', '');
-    el.appendChild(el1);
-    el = el1; //prodImg
-    el1 = crEl('img', '', '');
-    el.appendChild(el1);
-    let attr = document.createAttribute('src');
-    attr.value = product.imgRef;
-    el1.setAttributeNode(attr);
-    el.appendChild(el1);
+    {
+        let el = crEl('div');
+        {
+            let el = crEl('button', 'btDel', 'button bkgBeg', 'Delete');
+            el.addEventListener('click', () => {
+                products.splice(product.id - 1, 1);
+                products.forEach( (product, ind) => {product.id = ind + 1} );
+                localStorage.setItem(LSname, JSON.stringify(products)); // LSname declared in additional_lib.js
+                // products[0].title += 's';
+                deleteAllProdEl();
+                products.forEach(appendProduct);
+            })
+            el0 = el;
+        }
+        el.appendChild(el0)
+        el0 = el;
+    }
+    el.appendChild(el0);
 
-    el = crEl('div', 'btnDel', '');
-    elProd.appendChild(el);
-    el1 = crEl('button', 'button', 'Delete');
-    el1.addEventListener('click', function (e) {
-        elProd.remove();
-        products.splice(indProd, 1);
-        localStorage.setItem(LSname, JSON.stringify(products)); // LSname declared in additional_lib.js
-    })
-    el.appendChild(el1);
+    prodList.appendChild(el);
 }
 
-function crEl(tag, classes, text) {
-    const el = document.createElement(tag);
-    el.innerText = text;
-    el.classList = classes;
-    return el;
-}
 
