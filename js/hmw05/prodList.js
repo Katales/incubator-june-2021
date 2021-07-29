@@ -1,10 +1,10 @@
-let products = JSON.parse(localStorage.getItem(LSname)) || []; // LSname declared in additional_lib.js
+let products = JSON.parse(localStorage.getItem(nameLS)) || []; // nameLS declared in additional_lib.js
 
 const prodList = document.getElementById('prodList');
 const btDelAll = document.getElementById('btDelAll');
 btDelAll.onclick = () => { // button "Delete all"
     products = [];
-    localStorage.setItem(LSname, '');
+    localStorage.setItem(nameLS, '');
     deleteAllProdEl();
 };
 const btBack = document.getElementById('btBack');
@@ -66,7 +66,7 @@ function appendProduct(product) {
             el.addEventListener('click', () => {
                 products.splice(product.id - 1, 1);
                 products.forEach( (product, ind) => {product.id = ind + 1} );
-                localStorage.setItem(LSname, JSON.stringify(products)); // LSname declared in additional_lib.js
+                localStorage.setItem(nameLS, JSON.stringify(products)); // nameLS declared in additional_lib.js
                 // products[0].title += 's';
                 deleteAllProdEl();
                 products.forEach(appendProduct);

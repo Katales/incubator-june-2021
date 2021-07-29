@@ -52,8 +52,8 @@ const productsDebug = [
     },
 ];
 
-if (!localStorage.getItem(LSname).trim()) {
-    localStorage.setItem(LSname, JSON.stringify(productsDebug));
+if (!localStorage.getItem(nameLS).trim()) {
+    localStorage.setItem(nameLS, JSON.stringify(productsDebug));
 }
 // ---------- end of DEBUG data
 
@@ -62,7 +62,7 @@ const {title, qnt, price, imgRef} = prodForm;
 const btSave = document.getElementById('btSave');
 const btList = document.getElementById('btList');
 
-const products = JSON.parse(localStorage.getItem(LSname)) || [];// LSname declared in my_lib.js
+const products = JSON.parse(localStorage.getItem(nameLS)) || [];// nameLS declared in my_lib.js
 updProdCount();
 
 prodForm.addEventListener('submit', (e) => {
@@ -72,7 +72,7 @@ prodForm.addEventListener('submit', (e) => {
 btSave.addEventListener('click', () => {
     if (!!title.value.trim()) {
         addCurrProd(products);
-        localStorage.setItem(LSname, JSON.stringify(products)); // LSname declared in my_lib.js
+        localStorage.setItem(nameLS, JSON.stringify(products)); // nameLS declared in my_lib.js
     }
     updProdCount();
 });

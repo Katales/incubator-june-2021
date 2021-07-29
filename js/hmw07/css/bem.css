@@ -1,0 +1,399 @@
+/*------------ FLEX BOX --------------------------------*/
+.flxRow {
+    display: flex;
+    flex-flow: row;
+}
+
+.flxCol {
+    display: flex;
+    flex-flow: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.flxCenter {
+    align-items: center;
+    justify-content: center;
+}
+.flxCenterSB {
+    align-items: center;
+    justify-content: space-between;
+}
+.flxSB {
+    justify-content: space-between;
+}
+.flxSE {
+    justify-content: space-evenly;
+}
+.flxAlgStart {
+    justify-content: flex-start;
+}
+.flxAlgEnd {
+    justify-content: flex-end;
+}
+.flxAlgCenter {
+    justify-content: center;
+}
+.flxAcrStart {
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.flxAcrEnd {
+    align-items: flex-end;
+    align-content: flex-end;
+}
+.flxAcrCenter {
+    align-items: center;
+    align-content: center;
+}
+
+/*--------------- ?????????? -------------------------*/
+.relatTop30 {
+    position: relative;
+    top: 30px;
+}
+
+.lrPadding {
+    padding: 0 10% 0 10%;
+}
+
+/*------------ COLORS --------------------------------*/
+.bkgWht {
+    background: white;
+}
+.bkgPrp {
+    background: slateblue;
+}
+.bkgRed {
+    background: tomato;
+}
+.bkgDrk {
+    background: #102b3e;
+}
+.bkgBeg {
+    background: beige;
+}
+.bkgBlk {
+    background: black;
+}
+.bkgPink {
+    background: #fdeced;
+}
+.bkgPinkDrk {
+    background: #f7b2b7;
+}
+.clrWht {
+    color: white;
+}
+.clrPrp {
+    color: slateblue;
+}
+.clrRed {
+    color: tomato;
+}
+.clrDrk {
+    color: #102b3e;
+}
+.clrBlk {
+    color: black;
+}
+.clrPink {
+    color: #fdeced;
+}
+.clrPinkDrk {
+    color: #f7b2b7;
+}
+
+/*------------ WIDTHs --------------------------------*/
+.w15prc {
+    width: 15%;
+}
+.w20prc {
+    width: 20%;
+}.w25prc {
+     width: 25%;
+ }
+.w30prc {
+    width: 30%;
+}
+.w40prc {
+    width: 40%;
+}
+.w50prc {
+    width: 50%;
+}
+.w60prc {
+    width: 60%;
+}
+.w70prc {
+    width: 70%;
+}
+.w75prc {
+    width: 75%;
+}
+.w85prc {
+    width: 85%;
+}
+
+.w90prc {
+    width: 90%;
+}
+
+.w100prc {
+    width: 100%;
+}
+
+.wF2 {
+    width: 49%;
+}
+.wF3 {
+    width: 33%;
+}
+.wF4 {
+    width: 24%;
+}
+.h0_5 {
+    min-height: 24px;
+    max-height: 24px;
+}
+
+.h0_75 {
+    min-height: 36px;
+    max-height: 24px;
+}
+
+.h1 {
+    min-height: 46px;
+    max-height: 46px;
+}
+
+.h1_5 {
+    min-height: 70px;
+    max-height: 70px;
+}
+
+.h2 {
+    min-height: 96px;
+    max-height: 96px;
+}
+
+.h2_5 {
+    min-height: 120px;
+    max-height: 120px;
+}
+
+.h3 {
+    min-height: 140px;
+    max-height: 140px;
+}
+
+/*------------ text elem --------------------------------*/
+.txtCenter {
+    text-align: center;
+}
+
+.txtRight {
+    text-align: right;
+}
+
+.txtJustify {
+    text-align: justify;
+}
+
+.txtL {
+    font-size: large;
+}
+
+.txtM {
+    font-size: 15px;
+    margin-top: 7px;
+}
+
+.txtS {
+    font-size: small;
+    margin-top: 7px;
+}
+
+.txtXS {
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.txtXXS {
+    font-size: xx-small;
+}
+
+.txtBold {
+    font-weight: bold;
+}
+.txtMed {
+    font-weight: 550;
+}
+.txtNorm {
+    font-weight: normal;
+}
+
+.hdr1 {
+    font-size: 72px;
+    font-weight: 700;
+}
+.hdr2 {
+    font-size: 52px;
+    font-weight: 400;
+}
+.hdr2b {
+    font-size: 52px;
+    font-weight: 700;
+}
+
+/*------------ SHAPES & DECOs -------------------------*/
+.decoNone {
+    text-decoration: none;
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+.roundedS {
+    border-radius: 3px;
+}
+
+.circled {
+    border-radius: 50%;
+}
+
+.dottedBorder {
+    border: black dotted 1px;
+}
+
+
+.delim {
+    border-bottom: 1px solid lightgray;
+    padding: 0;
+}
+
+.taskDelim {
+    border-bottom: 2px solid black;
+    margin: 30px 5px;
+}
+
+.sqrL {
+    margin: 5px;
+    min-width: 66px;
+    min-height: 66px;
+}
+
+.sqrM {
+    margin: 5px;
+    min-width: 55px;
+    min-height: 55px;
+}
+
+.sqrS {
+    margin: 5px;
+    min-width: 15px;
+    min-height: 15px;
+}
+
+
+
+/* -----------------for DEBUG */
+/*.borderRed {*/
+/*    border: 1px solid tomato;*/
+/*}*/
+/*.borderLime {*/
+/*    border: 1px solid lime;*/
+/*}*/
+/*.sideBorders {*/
+/*    border-left: 1px solid tomato;*/
+/*    border-right: 1px solid tomato;*/
+/*}*/
+/*------------- !!!!!!!!!!!!!*/
+
+/*------------ SOME ELEMENTS -------------------------*/
+.button {
+    width: fit-content;
+    height: 50px;
+    padding: 0 25px;
+    border: 2px solid black;
+    border-radius: 25px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.bpPic-n-Txt > div:nth-of-type(2) {
+    padding: 0 0 0 50px;
+}
+.bpPic-n-Txt img:nth-of-type(1) {
+    width: 100%;
+    object-fit: fill;
+}
+.bpPic-n-Txt p:nth-of-type(1) {
+    /*font-size: 54px;*/
+    /*font-weight: 700;*/
+    margin-top: 5px;
+}
+.bpPic-n-Txt p:nth-of-type(2) {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: justify;
+    margin-top: 30px;
+}
+
+.headerMenu {
+    padding: 20px 90px 20px 145px;
+}
+.headerMenu > #logo > img {
+    height: 42px;
+}
+.headerMenu > #left > img + p {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    padding-left: 7px;
+}
+.headerMenu > #right > .menuItem {
+    padding-left: 22px;
+}
+
+.headerMenu .button.bkgWht {
+    margin-left: 30px;
+}
+.headerMenu .button.bkgBlk {
+    margin-left: 15px;
+}
+
+.colPHT {
+    min-width: 120px;
+    max-width: 295px;
+    /*margin: 5px 20px;*/
+}
+.colPHT > img {
+    width: 68%;
+    object-fit: fill;
+}
+
+.colPHT > p:nth-of-type(1) {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+.colPHT > p:nth-of-type(2) {
+    font-size: 18px;
+    margin-top: 5px;
+    text-align: justify;
+}
+
+
+/*.Scr {*/
+/*    padding: 0 145px 0 90px;*/
+/*    height: 630px; !*791px*!*/
+/*}*/
+

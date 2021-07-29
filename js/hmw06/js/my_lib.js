@@ -1,4 +1,4 @@
-const LSname = 'products';
+const nameLS = 'products';
 
 function crEl (tag, id, classes, text) {
     const el = document.createElement(tag);
