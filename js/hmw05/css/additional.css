@@ -1,0 +1,23 @@
+
+#prodForm {
+    line-height: 1.9;
+
+}
+#buttons {
+    padding-top: 50px ;
+}
+
+.userBlock {
+    margin: 10px 10px 0 10px;
+    padding: 5px 10px;
+    border: black solid 2px;
+    border-radius: 5px;
+    background: #e6f7b0;
+}
+
+.userBlock > .dottedBorder {
+    border-radius: 3px;
+    padding: 3px;
+    margin: 3px;
+}
+

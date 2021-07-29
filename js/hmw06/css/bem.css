@@ -1,3 +1,4 @@
+/*------------ FLEX BOX --------------------------------*/
 .flxRow {
     display: flex;
     flex-flow: row;
@@ -48,23 +49,17 @@
     align-content: center;
 }
 
+/*--------------- ?????????? -------------------------*/
 .relatTop30 {
     position: relative;
     top: 30px;
 }
 
-.txtCenter {
-    text-align: center;
+.lrPadding {
+    padding: 0 10% 0 10%;
 }
 
-.txtRight {
-    text-align: right;
-}
-
-.txtJustify {
-    text-align: justify;
-}
-
+/*------------ COLORS --------------------------------*/
 .bkgWht {
     background: white;
 }
@@ -111,6 +106,7 @@
     color: #f7b2b7;
 }
 
+/*------------ WIDTHs --------------------------------*/
 .w15prc {
     width: 15%;
 }
@@ -193,6 +189,19 @@
     max-height: 140px;
 }
 
+/*------------ text elem --------------------------------*/
+.txtCenter {
+    text-align: center;
+}
+
+.txtRight {
+    text-align: right;
+}
+
+.txtJustify {
+    text-align: justify;
+}
+
 .txtL {
     font-size: large;
 }
@@ -226,12 +235,22 @@
     font-weight: normal;
 }
 
-.decoNone {
-    text-decoration: none;
+.hdr1 {
+    font-size: 72px;
+    font-weight: 700;
+}
+.hdr2 {
+    font-size: 52px;
+    font-weight: 400;
+}
+.hdr2b {
+    font-size: 52px;
+    font-weight: 700;
 }
 
-.lrPadding {
-    padding: 0 10% 0 10%;
+/*------------ SHAPES & DECOs -------------------------*/
+.decoNone {
+    text-decoration: none;
 }
 
 .rounded {
@@ -246,18 +265,20 @@
     border-radius: 50%;
 }
 
-/* -----------------for DEBUG */
-/*.borderRed {*/
-/*    border: 1px solid tomato;*/
-/*}*/
-/*.borderLime {*/
-/*    border: 1px solid lime;*/
-/*}*/
-/*.sideBorders {*/
-/*    border-left: 1px solid tomato;*/
-/*    border-right: 1px solid tomato;*/
-/*}*/
-/*------------- !!!!!!!!!!!!!*/
+.dottedBorder {
+    border: black dotted 1px;
+}
+
+
+.delim {
+    border-bottom: 1px solid lightgray;
+    padding: 0;
+}
+
+.taskDelim {
+    border-bottom: 2px solid black;
+    margin: 30px 5px;
+}
 
 .sqrL {
     margin: 5px;
@@ -277,39 +298,22 @@
     min-height: 15px;
 }
 
-.dottedBorder {
-    border: black dotted 1px;
-}
 
-/*.button1 {*/
-/*    margin: 5px 0;*/
-/*    width: 78px;*/
-/*    height: 19px;*/
-/*    border-radius: 28px;*/
+
+/* -----------------for DEBUG */
+/*.borderRed {*/
+/*    border: 1px solid tomato;*/
 /*}*/
+/*.borderLime {*/
+/*    border: 1px solid lime;*/
+/*}*/
+/*.sideBorders {*/
+/*    border-left: 1px solid tomato;*/
+/*    border-right: 1px solid tomato;*/
+/*}*/
+/*------------- !!!!!!!!!!!!!*/
 
-.delim {
-    border-bottom: 1px solid lightgray;
-    padding: 0;
-}
-
-.taskDelim {
-    border-bottom: 2px solid black;
-    margin: 30px 5px;
-}
-
-.hdr1 {
-    font-size: 72px;
-    font-weight: 700;
-}
-.hdr2 {
-    font-size: 52px;
-    font-weight: 400;
-}
-.hdr2b {
-    font-size: 52px;
-    font-weight: 700;
-}
+/*------------ SOME ELEMENTS -------------------------*/
 .button {
     width: fit-content;
     height: 50px;
@@ -322,10 +326,6 @@
     justify-content: center;
     font-size: 17px;
     font-weight: 700;
-}
-.Scr {
-    padding: 0 145px 0 90px;
-    height: 630px; /*791px*/
 }
 
 .bpPic-n-Txt > div:nth-of-type(2) {
@@ -370,66 +370,6 @@
     margin-left: 15px;
 }
 
-/*#Scr1 {*/
-/*    !*height: 500px;*!*/
-/*    padding: 0 50px 0 140px;*/
-/*}*/
-/*#Scr1 > .bpPic-n-Txt > div:nth-of-type(1) {*/
-/*    !*width: 45%;*!*/
-/*    padding: 0 10px 0 0;*/
-/*}*/
-/*#Scr1 > .bpPic-n-Txt > div:nth-of-type(2) {*/
-/*    !*width: 60%;*!*/
-/*    padding: 0 0 0 0;*/
-/*}*/
-/*#shifted-div {*/
-/*    position: relative;*/
-/*    bottom: 72px;*/
-/*    !*left: 50px;*!*/
-/*}*/
-/*#shifted-div > p {*/
-/*    font-size: 18px;*/
-/*    font-weight: 600;*/
-/*    margin-bottom: 25px;*/
-/*}*/
-
-/*#Scr2 {*/
-/*}*/
-/*#Scr2 > .bpPic-n-Txt {*/
-/*    !*width: 90%;*!*/
-/*    margin-top: 82px;*/
-/*    margin-bottom: 72px;*/
-/*}*/
-
-/*#Scr3 {*/
-/*}*/
-/*#Scr3 > .bp3col {*/
-/*    width: 95%;*/
-/*    margin-top: 65px;*/
-/*    margin-bottom: 60px;*/
-/*}*/
-
-/*#Scr4 {*/
-/*}*/
-/*#Scr4 > .bp3col {*/
-/*    margin-top: 82px;*/
-/*    !*margin-bottom: 72px;*!*/
-/*}*/
-
-/*#Scr5 > .bpPic-n-Txt > div:nth-of-type(1) {*/
-/*    !*width: 45%;*!*/
-/*    padding: 0 10px 0 20px;*/
-/*}*/
-/*#Scr5 > .bpPic-n-Txt p:nth-of-type(2) {*/
-/*    font-size: 26px;*/
-/*    text-align: left;*/
-/*}*/
-
-
-/*#Scr6 > .bpPic-n-Txt .button {*/
-/*    margin: 80px 0 0 5px;*/
-/*}*/
-
 .colPHT {
     min-width: 120px;
     max-width: 295px;
@@ -450,3 +390,10 @@
     margin-top: 5px;
     text-align: justify;
 }
+
+
+/*.Scr {*/
+/*    padding: 0 145px 0 90px;*/
+/*    height: 630px; !*791px*!*/
+/*}*/
+

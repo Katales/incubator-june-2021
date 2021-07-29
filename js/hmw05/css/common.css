@@ -27,3 +27,8 @@ a:visited {
     border-radius: 5px;
     background: ivory;
 }
+
+.taskScreen > p:first-child {
+    font-style: italic;
+    margin-bottom: 30px;
+}
