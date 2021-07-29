@@ -1,0 +1,64 @@
+.Screen {
+    margin-top: 60px;
+}
+
+.taskScreen {
+    margin-top: 15px;
+    padding: 20px 30px;
+    border: tomato solid 2px;
+    border-radius: 5px;
+    background: ivory;
+}
+
+.taskScreen > p:first-child {
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.user {
+    background: ivory;
+    border: darkgoldenrod solid 1px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px lightgray;
+    margin: 5px 0;
+    padding: 10px;
+
+}
+.userInfo {
+    width: 55%;
+}
+
+.userAddr {
+    width: 25%;
+}
+
+.posts {
+    margin: 6px 0 8px 70px;
+}
+
+.post {
+    background: #e6f7b0;
+    border: forestgreen solid 1px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px lightgray;
+    margin: 5px 0;
+    padding: 10px;
+}
+.post > div:first-child {
+    padding-right: 25px;
+}
+
+.comments {
+    background: #9fc363;
+    border: forestgreen solid 1px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px lightgray;
+    margin: 5px 0 10px 70px;
+    padding: 4px 0;
+}
+
+.comment {
+    border-radius: 3px;
+    margin: 4px 8px;
+    padding: 8px;
+}

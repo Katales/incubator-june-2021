@@ -61,6 +61,10 @@
     text-align: right;
 }
 
+.txtJustify {
+    text-align: justify;
+}
+
 .bkgWht {
     background: white;
 }
@@ -113,8 +117,8 @@
 .w20prc {
     width: 20%;
 }.w25prc {
-    width: 25%;
-}
+     width: 25%;
+ }
 .w30prc {
     width: 30%;
 }
@@ -136,6 +140,11 @@
 .w85prc {
     width: 85%;
 }
+
+.w90prc {
+    width: 90%;
+}
+
 .w100prc {
     width: 100%;
 }
@@ -270,9 +279,6 @@
 
 .dottedBorder {
     border: black dotted 1px;
-    border-radius: 3px;
-    padding: 3px;
-    margin: 1px;
 }
 
 /*.button1 {*/
