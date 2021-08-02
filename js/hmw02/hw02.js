@@ -605,7 +605,7 @@ let posts = [
 ];
 
 document.write(`<!-- ----- template 1.1 ----- -->
-                <div class="Screen flxRow wrap flxCenterSB">`);
+                <div class="screen flxRow wrap flxCenterSB">`);
 
 for (const post of posts) {
     document.write(`<div class="post-card">

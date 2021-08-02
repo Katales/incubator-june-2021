@@ -52,7 +52,7 @@ let simpsons = [
 ];
 
 // -------------------------- template 2.1 --------------------------
-document.write(`<div class="Screen flxCol flxAcrCenter">`);
+document.write(`<div class="screen flxCol flxAcrCenter">`);
 for (let el of simpsons) {
     document.write(`<div class="cardPersH w100prc flxRow">
                         <div class="descrPers w70prc flxCol">
@@ -69,7 +69,7 @@ for (let el of simpsons) {
 document.write(`</div>`);
 
 // -------------------------- template 2.2 --------------------------
-document.write(`<div class="Screen flxRow wrap">`);
+document.write(`<div class="screen flxRow wrap">`);
 for (let el of simpsons) {
     document.write(`<div class="cardPersV flxCol">
                         <div class="descrPers2  flxCol">
@@ -108,7 +108,7 @@ let products = [
 ];
 
 // -------------------------- template 3.1 --------------------------
-document.write(`<div class="Screen flxRow wrap">`);
+document.write(`<div class="screen flxRow wrap">`);
 for (let product of products) {
     document.write(`<div class="product-card">
                         <h3 class="product-title">${product.title}. Price - ${product.price}</h3>
