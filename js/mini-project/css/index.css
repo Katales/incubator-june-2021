@@ -1,0 +1,44 @@
+
+.user {
+    width: 48%;
+    margin: .7% 0;
+}
+
+.button {
+    height: 40px;
+}
+
+.userBasicInfo {
+    margin-bottom: 20px;
+}
+
+/*.posts {*/
+/*    margin: 6px 0 8px 0;*/
+/*}*/
+
+/*.post {*/
+/*    background: #e6f7b0;*/
+/*    border: forestgreen solid 1px;*/
+/*    border-radius: 3px;*/
+/*    box-shadow: 3px 3px 3px lightgray;*/
+/*    margin: 5px 0;*/
+/*    padding: 10px;*/
+/*}*/
+/*.post > div:first-child {*/
+/*    padding-right: 25px;*/
+/*}*/
+
+/*.comments {*/
+/*    background: #9fc363;*/
+/*    border: forestgreen solid 1px;*/
+/*    border-radius: 3px;*/
+/*    box-shadow: 3px 3px 3px lightgray;*/
+/*    margin: 5px 0 10px 0;*/
+/*    padding: 4px 0;*/
+/*}*/
+
+/*.comment {*/
+/*    border-radius: 3px;*/
+/*    margin: 4px 8px;*/
+/*    padding: 8px;*/
+/*}*/

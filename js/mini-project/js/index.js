@@ -11,10 +11,10 @@ async function showUserList (elWrapper) {
             .then(resp => resp.json())
                     : JSON.parse(localStorage.getItem(nameLS));
 
-    const elUsers = crEl('div', 'users', 'users flxRow wrap')
+    const elUsers = crEl('div', 'users', 'users flxRow wrap flxSE')
     for (const user of users) {
-        const elUser = crEl('div', 'user', 'user flxCol');
-        const elUserBasicInfo = crEl('div', '', 'flxCol txtL');
+        const elUser = crEl('div', 'user', 'user flxCol flxSB');
+        const elUserBasicInfo = crEl('div', '', 'userBasicInfo flxCol txtL');
         elUserBasicInfo.innerHTML = `<p>id:<b>${user.id}.</b> Name: <b>${user.name}</b></p>`;
 
         const elButton = crEl('button', '', 'button', 'More info ...');

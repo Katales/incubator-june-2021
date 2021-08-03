@@ -18,7 +18,7 @@ function showComments (postId, elPreceding) {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
         .then(resp => resp.json())
         .then(comments => {
-            const elComments = crEl('div', 'comments', 'comments flxCol');
+            const elComments = crEl('div', 'comments', 'comments flxRow wrap flxSB');
             for (const comment of comments) {
                 const elComment = crEl('div', '', 'comment dottedBorder');
                 elComment.innerHTML = `<p>Comment id: <b>${comment.id}</b> (Post id: ${comment.postId}) e-mail: ${comment.email}</p>

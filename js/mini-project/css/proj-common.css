@@ -38,7 +38,6 @@ a:visited {
 
 
 .user {
-    width: 20%;
     background: ivory;
     border: darkgoldenrod solid 1px;
     border-radius: 5px;
@@ -47,20 +46,7 @@ a:visited {
     padding: 10px;
 }
 
-/*.userBasicInfo {*/
-/*    width: 55%;*/
-/*}*/
-
-.userInfo {
-    width: 55%;
-}
-
-.userAddr {
-    width: 25%;
-}
-
 .posts {
-    margin: 6px 0 8px 0;
 }
 
 .post {
@@ -68,11 +54,6 @@ a:visited {
     border: forestgreen solid 1px;
     border-radius: 3px;
     box-shadow: 3px 3px 3px lightgray;
-    margin: 5px 0;
-    padding: 10px;
-}
-.post > div:first-child {
-    padding-right: 25px;
 }
 
 .comments {
@@ -80,12 +61,8 @@ a:visited {
     border: forestgreen solid 1px;
     border-radius: 3px;
     box-shadow: 3px 3px 3px lightgray;
-    margin: 5px 0 10px 0;
-    padding: 4px 0;
 }
 
 .comment {
     border-radius: 3px;
-    margin: 4px 8px;
-    padding: 8px;
 }

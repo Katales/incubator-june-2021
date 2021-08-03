@@ -6,7 +6,7 @@ const user = JSON.parse(new URL(location.href).searchParams.get('user'));
 (showUserInfo)(user, taskScreen);
 
 function showUserInfo (user, elWrapper) {
-    const elUser = crEl('div', 'user ', 'user flxRow wrap flxAcrCenter');
+    const elUser = crEl('div', 'user', 'user flxRow wrap flxAcrCenter');
     const elUserInfo = crEl('div', '', 'userInfo flxCol txtL');
     elUserInfo.innerHTML = `<p><b>${user.id}. ${user.name}</b> (${user.username})</p>
                             <p>e-mail: ${user.email}</p>
@@ -22,37 +22,39 @@ function showUserInfo (user, elWrapper) {
                             <p>city: ${user.address.city}</p>
                             <p>zip: ${user.address.zipcode}</p>
                             <p>gps: ${user.address.geo.lat}, ${user.address.geo.lng}</p>`;
+    const elBtnContainer = crEl('div', '', 'flxRow flxCenter')
     const elButton = crEl('button', '', 'button', 'Show the posts of current user');
     elButton.onclick = () => {
         const elPosts = document.getElementById('posts');
         if (!elPosts ) {
             elButton.innerText = 'Hide the posts of current user';
-            showPostTitles(user.id, elButton);
+            showPostTitles(user.id, elBtnContainer);
         } else {
             elButton.innerText = 'Show the posts of current user';
             deletePosts();
         }
     };
+    elBtnContainer.append(elButton);
     elUser.append(elUserInfo, elUserAddr);
     elWrapper.append(elUser);
-    elUser.insertAdjacentElement('afterend', elButton);
+    elUser.insertAdjacentElement('afterend', elBtnContainer);
 }
 
-function showPostTitles (userId, elUser) {
+function showPostTitles (userId, elPreceding) {
     fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
         .then(resp => resp.json())
         .then(resp => {
-            const elPosts = crEl('div', 'posts', 'posts flxCol');
+            const elPosts = crEl('div', 'posts', 'posts flxRow wrap flxSB');
             for (const post of resp) {
-                const elPost = crEl('div', '', 'post flxRow flxAcrCenter');
-                const elPostTxt = crEl('div', '', 'flxCol txtJustify w100prc');
+                const elPost = crEl('div', '', 'post flxCol flxSB');
+                const elPostTxt = crEl('div');
                 elPostTxt.innerHTML = `<p>Title: <b>${post.title}</b></p>`;
-                const elButton = crEl('button', '', 'button bkgBeg', 'Go to post');
+                const elButton = crEl('button', '', 'button txtL bkgBeg', 'Go to post');
                 elButton.onclick = () => { open(`./post-details.html?post=${JSON.stringify(post)}`, '_self');}
                 elPost.append(elPostTxt, elButton); // ?post=${JSON.stringify(post)}
                 elPosts.append(elPost);
             }
-            elUser.insertAdjacentElement('afterend', elPosts);
+            elPreceding.insertAdjacentElement('afterend', elPosts);
         } );
 }
 
