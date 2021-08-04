@@ -1,15 +1,14 @@
-
 const taskScreen = document.getElementById('taskScreen');
 
 (showUserList)(taskScreen);
 
 
-async function showUserList (elWrapper) {
-    const usersLSisEmpty = !(localStorage.getItem(nameLS) || '').trim();
+async function showUserList(elWrapper) {
+    const usersLSisEmpty = !(localStorage.getItem(usersLSname) || '').trim();
     const users = usersLSisEmpty
-                    ? await fetch(`https://jsonplaceholder.typicode.com/users`)
+        ? await fetch(`https://jsonplaceholder.typicode.com/users`)
             .then(resp => resp.json())
-                    : JSON.parse(localStorage.getItem(nameLS));
+        : JSON.parse(localStorage.getItem(usersLSname));
 
     const elUsers = crEl('div', 'users', 'users flxRow wrap flxSE')
     for (const user of users) {
@@ -26,5 +25,5 @@ async function showUserList (elWrapper) {
     }
     elWrapper.append(elUsers);
 
-    localStorage.setItem(nameLS, JSON.stringify(users));
+    localStorage.setItem(usersLSname, JSON.stringify(users));
 }

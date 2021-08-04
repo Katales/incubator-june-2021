@@ -1,11 +1,10 @@
-
 const taskScreen = document.getElementById('taskScreen');
 const post = JSON.parse(new URL(location.href).searchParams.get('post'));
 
 (showPostDetails)(post, taskScreen);
-(showComments)(post.id, document.getElementById('post') );
+(showComments)(post.id, document.getElementById('post'));
 
-function showPostDetails (post, elWrapper) {
+function showPostDetails(post, elWrapper) {
     const elPost = crEl('div', 'post', 'post flxCol');
     elPost.innerHTML = `<p>Post id: <b>${post.id}</b> / (UserID: ${post.userId})</p>
                         <p>Title: <b>${post.title}</b></p>
@@ -14,7 +13,7 @@ function showPostDetails (post, elWrapper) {
 }
 
 
-function showComments (postId, elPreceding) {
+function showComments(postId, elPreceding) {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
         .then(resp => resp.json())
         .then(comments => {
