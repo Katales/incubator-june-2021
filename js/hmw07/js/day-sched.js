@@ -63,6 +63,11 @@ const tasks = [
         name: 'Let\'s call it a day!',
         func: logTaskName,
         duration: getRandInt(1) / 2
+    },
+    {
+        name: 'Commute home',
+        func: logTaskName,
+        duration: getRandInt(1) / 2
     }
 ];
 // ---------------------------------------------------------
@@ -75,7 +80,7 @@ for (let i = 0; i < tasks.length; i++) {
     promisePtr = queueTask(i, promisePtr);
 }
 
-function queueTask(taskNum, currentPromise) { //v.4.0
+function queueTask(taskNum, currentPromise) {
     if (!currentPromise) {
         return new Promise(function (resolve, reject) {
             const task = tasks[taskNum];
