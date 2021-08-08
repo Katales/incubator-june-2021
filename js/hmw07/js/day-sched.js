@@ -116,7 +116,7 @@ function queueTask(taskNum, currentPromise) {
 //             await (task.func)(task.name);
 //             console.log(`... FINISHED [timer=${timeFromStart()} sec.]`);
 //             resolve();
-//         }, task.duration * 1_00);
+//         }, task.duration * 1_000);
 //     })
 // }
 // //-------------------- METHOD 2 (Using async/await) --------------------------
