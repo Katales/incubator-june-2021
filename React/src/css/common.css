@@ -24,7 +24,7 @@ a:visited {
 .taskScreen {
     margin-top: 15px;
     padding: 20px 20px;
-    border: tomato solid 2px;
+    border: tomato solid 1px;
     border-radius: 5px;
     background: ivory;
 }
