@@ -1,12 +1,15 @@
 import './css/bem.css'
-import './css/common.css'
+import './App.css'
+import {UsersPnC} from "./components/UsersPnC/UsersPnC";
 
-function App() {
+
+export default function App() {
   return (
     <div className="taskScreen">
+
+      <UsersPnC/>
 
     </div>
   );
 }
 
-export default App;
