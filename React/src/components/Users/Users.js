@@ -8,20 +8,16 @@ export function Users() {
     let [userN, setUserN] = useState([]);
     let [users, setUsers] = useState([]);
     useEffect(() => {
-        getUser(1).then(user => {
-            setUserN(user);
-            // console.log(user);
-        });
+        getUser(1).then(user => setUserN(user));
         getUsers().then(users => setUsers(users));
     }, []);
 
     return (
         <div id={'users'} className={'users flxCol'}>
-            {/*<p> One user: (to test <b>getUser(id)</b>)</p>*/}
-            {/*/!*<User user={user}/>*!/ this line doesn't work - WTF ?!?*/}
-            {/*{[userN].map(user => <User user={user} key={user.id}/>)}*/}
-            {/*<hr/>*/}
-            {/*<p>ALL users:</p>*/}
+            <p> One user: (to test <b>getUser(id)</b>)</p>
+            {<User user={userN}/>}
+            <hr/>
+            <p>ALL users:</p>
             {users.map(user => <User user={user} key={user.id}/>)}
         </div>
     )
