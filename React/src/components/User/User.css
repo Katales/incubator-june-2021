@@ -1,0 +1,17 @@
+.user {
+    background: ivory;
+    border: darkgoldenrod solid 1px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px lightgray;
+    margin: 7px 0;
+    padding: 10px;
+
+}
+.userInfo {
+    width: 55%;
+    margin-right: 10px;
+}
+
+.userAddr {
+    width: 25%;
+}
