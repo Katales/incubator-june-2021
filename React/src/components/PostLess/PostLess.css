@@ -1,0 +1,27 @@
+.post {
+    background: #e6f7b0;
+    border: forestgreen solid 1px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px lightgray;
+    margin: 7px 0 2px 0;
+    padding: 10px;
+}
+
+.post > div:first-child {
+    padding-right: 25px;
+}
+
+.postLess {
+    background: #e6f7b0;
+    border: forestgreen solid 1px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 3px 3px 3px lightgray;
+    margin: 7px 0 2px 0;
+    padding: 10px;
+}
+
+.postLess > div:first-child {
+    padding-right: 25px;
+}
+

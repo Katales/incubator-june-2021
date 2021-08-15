@@ -1,0 +1,15 @@
+
+.comment {
+    background: #9fc363;
+    border-radius: 5px;
+    margin: 2px 0;
+    padding: 8px;
+}
+
+.commentLess {
+    background: #9fc363;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 7px 0 2px 0;
+    padding: 8px;
+}
