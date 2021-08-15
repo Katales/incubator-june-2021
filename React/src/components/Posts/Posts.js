@@ -4,16 +4,29 @@ import {PostLess} from "../PostLess/PostLess";
 import {PostMore} from "../PostMore/PostMore";
 
 
-export function Posts () {
+export function Posts() {
     let [posts, setPosts] = useState([]);
-    useEffect( () => {
+    let [isShowMore, setIsShowMore] = useState([]);
+    useEffect(() => {
         getPosts().then(posts => setPosts(posts));
     }, []);
 
-    return posts.map( post =>
-        <div className={'posts flxCol'} key={post.id}>
-            <PostLess post={post}/>
-            <PostMore post={post}/>
+    const flipIsShowMore = function (postId) {
+        const tmpArr = [...isShowMore];
+        const newState = tmpArr[postId] = !tmpArr[postId]
+        setIsShowMore(tmpArr);
+        return newState;
+    }
+
+    return (
+        <div className={'posts flxCol'}>
+            {posts.map(post =>
+                <div key={post.id}>
+                    <PostLess post={post} isShowCmnt={isShowMore[post.id]}
+                        flipIsShowMore={flipIsShowMore}/>
+                    {isShowMore[post.id] && <PostMore post={post}/>}
+                </div>
+            )}
         </div>
     )
 }

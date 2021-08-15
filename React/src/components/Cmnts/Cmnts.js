@@ -5,12 +5,27 @@ import {CmntMore} from "../CmntMore/CmntMore";
 
 export function Cmnts() {
     let [cmnts, setCmnts] = useState([]);
+    let [isShowMore, setIsShowMore] = useState([]);
+
     useEffect( () => {
         getCmnts().then( cmnts => setCmnts(cmnts));
     }, []);
-    return cmnts.map(cmnt =>
-            <div className={'comments flxCol'} key={cmnt.id}>
-                <CmntLess cmnt={cmnt}/>
-                <CmntMore cmnt={cmnt} key={cmnt.id + 'M'}/>
+
+    const flipIsShowMore = (postId) => {
+        const tmpArr = [...isShowMore];
+        const newState = tmpArr[postId] = !tmpArr[postId];
+        setIsShowMore(tmpArr);
+        return newState;
+    }
+
+    return (<div className={'comments flxCol'}>
+                {cmnts.map(cmnt =>
+                    (<div key={cmnt.id}>
+                        <CmntLess cmnt={cmnt}
+                            isShowCmnt={isShowMore[cmnt.id]}
+                            flipIsShowMore={flipIsShowMore}/>
+                        {isShowMore[cmnt.id] && <CmntMore cmnt={cmnt}/>}
+                    </div>)
+                )}
             </div>)
 }
