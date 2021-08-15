@@ -22,7 +22,7 @@ export function Posts() {
         <div className={'posts flxCol'}>
             {posts.map(post =>
                 <div key={post.id}>
-                    <PostLess post={post} isShowCmnt={isShowMore[post.id]}
+                    <PostLess post={post} isShowPost={isShowMore[post.id]}
                         flipIsShowMore={flipIsShowMore}/>
                     {isShowMore[post.id] && <PostMore post={post}/>}
                 </div>

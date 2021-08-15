@@ -1,8 +1,8 @@
 import './PostLess.css';
 import {useState} from "react";
 
-export function PostLess({post, isShowCmnt, flipIsShowMore}) {
-    const postClass = isShowCmnt ? 'postLess' : 'post';
+export function PostLess({post, isShowPost, flipIsShowMore}) {
+    const postClass = isShowPost ? 'postLess' : 'post';
     let [btnShowMore_txt, setBtnShowMore_txt] = useState('Show more');
 
     const clickBtnShowMore = function () {
