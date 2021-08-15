@@ -9,10 +9,7 @@ export function Users () {
 
     useEffect( () => {
         getUsers()
-            .then( users => users.map( (user) => {
-                user.isShowPosts = false;
-                return user;
-            }) )
+            .then( users => users.map( (user) => ({...user, isShowPosts: false})))
             .then( users => setUsers(users) );
         }, []);
 
