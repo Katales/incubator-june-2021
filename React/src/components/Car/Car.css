@@ -1,0 +1,7 @@
+.car {
+
+}
+
+.car > p {
+    margin: 2px 10px;
+}
