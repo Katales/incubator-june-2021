@@ -36,13 +36,12 @@ function Users() {
 
 function User({user, nextUser}) {
     user = user || {};
-    let [currUserId, setCurrUserId] = useState(1);
 
     const clickBtn = function () {
-        console.log('<clickBtn> currUserId=', currUserId )
-        setCurrUserId(currUserId + 1);
-        console.log('<clickBtn> currUserId + 1 =', currUserId )
-        nextUser(currUserId);
+        // console.log('<clickBtn> currUserId=', currUserId )
+        // setCurrUserId(currUserId + 1);
+        // console.log('<clickBtn> currUserId + 1 =', currUserId )
+        nextUser(user.id + 1);
     }
 
     return (
@@ -53,7 +52,7 @@ function User({user, nextUser}) {
                 <p>phone: {user.phone}</p>
             </div>
             <button className={'button'} onClick={clickBtn}>
-                {`Next (${currUserId})`}
+                {`Next (${user.id})`}
             </button>
         </div>
     )
