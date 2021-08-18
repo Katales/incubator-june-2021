@@ -15,7 +15,6 @@ export function CarList ({updateSignal, cbRequestUpdate, cbEditCar}) {
 
     return (
         <div className={'carList flxCol'}>
-            {updateSignal}
             {carList.map( car => <Car car={car} key={car.id}
                 cbRequestUpdate={cbRequestUpdate}
                 cbEditCar={cbEditCar}
