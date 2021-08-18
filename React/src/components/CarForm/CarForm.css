@@ -1,0 +1,31 @@
+.carForm {
+    background: ivory;
+    border: darkgoldenrod solid 1px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px lightgray;
+    padding: 25px 10px 0px 10px;
+    margin-bottom: 10px;
+}
+
+.carFormGrid {
+    display: grid;
+    grid-template-columns: 40px 156px 31px 70px 38px 105px 80px;
+    grid-gap: 10px;
+    height: 21px;
+    padding: 1px 1px 1px 99px;
+    margin-bottom: 10px;
+}
+.carForm > input {
+    /*margin-right: 20px;*/
+}
+
+.validErr {
+    background: lightsalmon;
+}
+
+.validationErrMsg {
+    color: tomato;
+    font-size: 15px;
+    height: 25px;
+    margin: 10px 10px 0px 100px;
+}

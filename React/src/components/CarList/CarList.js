@@ -1,18 +1,31 @@
 import {Car} from "../Car/Car";
 import {useEffect, useState} from "react";
-import {getCars} from "../../services/data.connector";
+import {delCar, getCars} from "../../services/data.connector";
 
 
-export function CarList () {
+export function CarList ({updateSignal, cbRequestUpdate, cbEditCar}) {
+
+    console.log('<CarList>');
 
     let [carList, setCarList] = useState([]);
-    useEffect( () => {
-        getCars().then(cars => setCarList(cars));
-    }, [])
 
+
+    useEffect( () => {
+        getCars().then(cars => setCarList(cars))
+            .then(resp => console.log('Cars FETCHED'));
+    }, [updateSignal])
+
+    const cbDeleteCar = (carId) => {
+        delCar(carId)
+            .then( () => cbRequestUpdate());
+
+    }
     return (
         <div className={'carList flxCol'}>
-            {carList.map( car => <Car car={car} key={car.id}/>)}
+            {updateSignal}
+            {carList.map( car => <Car car={car} key={car.id}
+                cbDeleteCar={cbDeleteCar}
+                cbEditCar={cbEditCar}/>)}
         </div>
     )
 }

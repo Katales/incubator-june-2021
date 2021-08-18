@@ -1,5 +1,13 @@
 .car {
-
+    background: #e6f7b0;
+    border: forestgreen solid 1px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px lightgrey;
+    margin: 1px 0;
+    padding: 6px 1px;
+    display: grid;
+    grid-template-columns: 88px 208px 112px 160px 80px 86px;
+    grid-gap: 10px;
 }
 
 .car > p {
