@@ -1,10 +1,14 @@
 import './Car.css'
+import {delCar} from "../../services/data.connector";
 
 
-export function Car ({car, cbDeleteCar, cbEditCar}) {
+export function Car ({car, cbRequestUpdate, cbEditCar}) {
     car = car || {};
 
-    const onclickBtnDelete = () => cbDeleteCar(car.id);
+    const onclickBtnDelete = () => {
+        delCar(car.id)
+            .then( () => cbRequestUpdate());
+    }
 
     const onclickBtnEdit = () => cbEditCar(car.id);
 

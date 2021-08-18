@@ -14,7 +14,7 @@ export function CarForm ({carId, cbRequestUpdate}) {
     let [PriceInvalid, setPriceInvalid] = useState(false);
 
     useEffect( () => {
-        return getCar(carId).then( car => {
+        return carId && getCar(carId).then( car => {
             // console.log('<CarFORM> Car for EDIT fetched car =', car);
             setFormCar(car);
         });
@@ -24,16 +24,15 @@ export function CarForm ({carId, cbRequestUpdate}) {
         isModelValid(e.target.value);
         setFormCar({...formCar, model: e.target.value});
     }
-
     const onInputPrice = (e) => {
         isPriceValid(e.target.value);
         setFormCar({...formCar, price: e.target.value});
     }
-
     const onInputYear = (e) => {
         isYearValid(e.target.value);
         setFormCar({...formCar, year: e.target.value});
     }
+
 
     const onBlurModel = (e) => {
         if (!isModelValid(e.target.value)) {
@@ -41,15 +40,12 @@ export function CarForm ({carId, cbRequestUpdate}) {
             return;
         }
     }
-
-
     const onBlurPrice = (e) => {
         if (!isPriceValid(e.target.value)) {
             e.preventDefault();
             return
         }
     }
-
     const onBlurYear = (e) => {
         if (!isYearValid(e.target.value)) {
             e.preventDefault();
@@ -86,7 +82,6 @@ export function CarForm ({carId, cbRequestUpdate}) {
             return false;
         }
     }
-
     const isPriceValid = (value) => {
         if (value <= 0) {
             setValidationErrMsg('Validation error: Price can\'t be less or equal to 0 !');
@@ -98,7 +93,6 @@ export function CarForm ({carId, cbRequestUpdate}) {
             return true;
         }
     }
-
     const isYearValid = (value) => {
         if (value < 1990 || value > 2021) {
             setValidationErrMsg('Validation error: Year can\'t be out of interval [1990 - 2021] !');
