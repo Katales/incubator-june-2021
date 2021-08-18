@@ -1,0 +1,12 @@
+
+.menuBlock {
+    background: aliceblue;
+    border-top: navy 2px solid;
+    border-bottom: navy 1px solid;
+    padding: 20px 10px 10px 10px;
+    margin-bottom: 20px;
+}
+
+.menuItem {
+    border-color: darkblue;
+}
