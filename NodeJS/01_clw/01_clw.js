@@ -14,7 +14,7 @@ const users = [
 const path = require('path');
 const peopleServ = require('./modules/people.services');
 
-// CONSTANTS
+// CONSTANTSd
 const people = [
     { name: 'Mata', gender: 'female', age: 34 },
     { name: 'Arsen', gender: 'male', age: 17 },
