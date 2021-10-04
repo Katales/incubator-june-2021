@@ -1,58 +1,59 @@
-/*
-- у вас є масив юзерів (до 10), з такими полями наприклад -
-const users = [
-    { name: 'olya', gender: 'female', age: 20 }
-        ...
-],
-вам потрібно написати метод який створює файлики - де назва файлику - це імя вашого юзера (наприклад - Olya.txt),
-вміст це сам ваш юзер - { name: 'olya', gender: 'female', age: 20 }
-перед тим створити 4 папки (програмно) - наприклад - manOlder20, manYounger20, womanOlder20, womanYounger20
-і розподілити ваших юзерів саме по відповідних папках
- */
-
 // DEPENDENCIES
 const path = require('path');
-const peopleServ = require('./modules/people.services');
+const fspw = require('./modules/fs.promise.wrapers');
 
 // CONSTANTS
-const people = [
-    { name: 'Mata', gender: 'female', age: 34 },
-    { name: 'Arsen', gender: 'male', age: 17 },
-    { name: 'Venik', gender: 'male', age: 67 },
-    { name: 'Gala', gender: 'female', age: 24 },
-    { name: 'Aisha', gender: 'female', age: 31 },
-    { name: 'Afrikan', gender: 'male', age: 37 },
-    { name: 'Helga', gender: 'female', age: 19 },
-    { name: 'Bogdana', gender: 'female', age: 25 },
-    { name: 'Maxin', gender: 'female', age: 29 },
-    { name: 'Michaela', gender: 'female', age: 20 },
-    { name: 'Konstantyn', gender: 'male', age: 23 },
-    { name: 'Yurko', gender: 'male', age: 20 }
-];
+const peoplePath = path.join(__dirname, 'people');
+const malePath = path.join(peoplePath, 'boyz');
+const femalePath = path.join(peoplePath, 'galz');
 
-const basePath = __dirname;
-const peopleDir = 'people';
-const maleStemDir = 'men';
-const femaleStemDir = 'women';
-const ageBnd = 20;
-
+//entry point
 main();
 
+// BODY of app.js
 async function main() {
-    let peoplePath = path.join(basePath, peopleDir);
 
-    if (await peopleServ.dirChkCreate(peoplePath)) {
-        for (const person of people) {
-            const personDir =   ( (person.gender === 'male') ? maleStemDir : femaleStemDir)
-                + ( (person.age < ageBnd) ? 'Below' : 'Over') + ageBnd;
-            const personDirPath = path.join(basePath, peopleDir, personDir);
-            if (! await peopleServ.createPersonFile(personDirPath, person) ) {
-                console.log(`main> CRITICAL Error,EXITING...`);
-                return false;
-            }
-        }
-    } else {
-        console.log(`main> CRITICAL Error,EXITING...`);
+    if (! await sortPeople2Dir(malePath, femalePath)) {
+        console.log(`main> CRITICAL Error, EXITING...`);
         return false;
     }
+    if (! await sortPeople2Dir(femalePath, malePath)) {
+        console.log(`main> CRITICAL Error, EXITING...`);
+        return false;
+    }
+}
+
+async function sortPeople2Dir(srcPath, dstPath) {
+
+    let dstGender;
+    switch (dstPath) {
+        case malePath:
+            dstGender = 'male';
+            break;
+        case femalePath:
+            dstGender = 'female';
+            break;
+        default:
+            console.log(`sortPeople2Dir> destination directory ${dstPath} is neither male nor female!`);
+            return false;
+    }
+
+    let srcDirCont = await fspw.readDir(srcPath);
+    if (! srcDirCont) return false;
+
+    for (const dirItem of srcDirCont) {
+        if (! dirItem.isFile()) continue;
+        let srcFilePath = path.join(srcPath, dirItem.name);
+        let person = (await fspw.readFileJSON(srcFilePath));
+        if (! person ||
+            person.gender !== dstGender ) continue;
+
+        if (! await fspw.renameFile(
+                srcFilePath,
+                path.join(dstPath, dirItem.name) ) ) {
+            console.log(`sortPeople2Dir> CRITICAL Error,EXITING...`);
+            return false;
+        }
+    }
+    return true;
 }
