@@ -13,11 +13,11 @@ main();
 // BODY of app.js
 async function main() {
 
-    if (! await sortPeople2Dir(malePath, femalePath)) {
+    if (!await sortPeople2Dir(malePath, femalePath)) {
         console.log(`main> CRITICAL Error, EXITING...`);
         return false;
     }
-    if (! await sortPeople2Dir(femalePath, malePath)) {
+    if (!await sortPeople2Dir(femalePath, malePath)) {
         console.log(`main> CRITICAL Error, EXITING...`);
         return false;
     }
@@ -38,17 +38,17 @@ async function sortPeople2Dir(srcPath, dstPath) {
             return false;
     }
 
-    let srcDirCont = await fspw.readDir(srcPath);
-    if (! srcDirCont) return false;
+    const srcDirCont = await fspw.readDir(srcPath);
+    if (!srcDirCont) return false;
 
     for (const dirItem of srcDirCont) {
-        if (! dirItem.isFile()) continue;
+        if (!dirItem.isFile()) continue;
         let srcFilePath = path.join(srcPath, dirItem.name);
         let person = (await fspw.readFileJSON(srcFilePath));
-        if (! person ||
+        if (!person ||
             person.gender !== dstGender ) continue;
 
-        if (! await fspw.renameFile(
+        if (!await fspw.renameFile(
                 srcFilePath,
                 path.join(dstPath, dirItem.name) ) ) {
             console.log(`sortPeople2Dir> CRITICAL Error,EXITING...`);
