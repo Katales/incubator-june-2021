@@ -48,7 +48,7 @@ async function sortPeople2Dir(srcPath, dstPath) {
         if (!person ||
             person.gender !== dstGender ) continue;
 
-        if (!await fspw.renameFile(
+        if (!await fspw.mvFile(
                 srcFilePath,
                 path.join(dstPath, dirItem.name) ) ) {
             console.log(`sortPeople2Dir> CRITICAL Error,EXITING...`);
