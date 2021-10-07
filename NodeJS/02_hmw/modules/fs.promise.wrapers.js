@@ -1,6 +1,5 @@
 // DEPENDENCIES
 const fsp = require('fs/promises');
-const path = require("path");
 const fsc = require('fs').constants;
 
 // BODY
@@ -28,7 +27,7 @@ const writeFile = async (filePath, data) => {
 // write data to file in JSON format
     try {
         await fsp.writeFile(filePath, data);
-        console.log(`writeFile> created file ${filePath}}`);
+        // console.log(`writeFile> written to ${filePath}}`);
     } catch (e) {
         console.log(`ERROR writing to ${filePath}\n${e}`);
         return false;
@@ -37,7 +36,7 @@ const writeFile = async (filePath, data) => {
 }
 
 const writeFileJSON = (filePath, data) => {
-    return writeFile(filePath, JSON.stringify(data));
+    return writeFile(filePath, JSON.stringify(data, null, 4));
 }
 
 const mvFile = async (srcFilePath, dstFilePath) => {
@@ -88,7 +87,7 @@ const dirChkCreate = async (dirPath) => {
     }catch(e) {
         if (e.code === 'ENOENT') {
             try { // dirPath is not existent - create !
-                console.log(`dirChkCreate> creating ${dirPath}:`);
+                // console.log(`dirChkCreate> creating ${dirPath}:`);
                 await fsp.mkdir(dirPath);
             }catch(e) {
                 console.log(`dirChkCreate> Error creating ${dirPath}:\n`, e);
