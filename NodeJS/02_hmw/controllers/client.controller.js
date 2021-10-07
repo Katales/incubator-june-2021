@@ -8,7 +8,6 @@ const clientDbSrv = require('../db/client.db.services');
 
 module.exports = {
     getClients: (req, res) => {
-        console.log(db.clients);
         res.json(db.clients);
     },
 
