@@ -2,7 +2,7 @@ const router = require('express').Router();
 const clientCtrl = require('../controllers/client.controller');
 const rootCntrl = require('../controllers/root.controller');
 
-router.get('/', rootCntrl.getRules );
+router.get('/', rootCntrl.getRules);
 // Create
 router.post('/clients', clientCtrl.newClient);
 // Retrieve

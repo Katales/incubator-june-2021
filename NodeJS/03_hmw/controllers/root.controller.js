@@ -7,7 +7,7 @@ const apiRules = "How to use:</br></br>" +
     "(DELETE)<span>&emsp;</span>/clients/(id) - DELETE client by ID</br>";
 
 module.exports = {
-    getRules: (req, res) => {
+    getRules: async (req, res) => {
         res.send(apiRules);
     }
 }
