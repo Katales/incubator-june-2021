@@ -1,45 +1,52 @@
-const path = require('path');
-
-const dbRelPath = '../db/db.json';
-const dbPath = path.join(__dirname, dbRelPath);
-const db = require(dbPath);
-const fspw = require('../helpers/fs.promise.wrapers');
-const clientDbSrv = require('../db/client.db.services');
+const clientMod = require('./../db/client.model');
 
 module.exports = {
-    getClients: (req, res) => {
-        res.json(db.clients);
+    getClients: async (req, res) => {
+        try {
+            res.json(await clientMod.find());
+        } catch (e) {
+            res.json(e);
+        }
     },
 
-    getClientById: (req, res) => {
-        const clientId = +req.params.clientId;
-        const ind = clientDbSrv.getIndByFieldVal(db.clients, 'id', clientId);
-        if (!ind) res.send('ERROR: no record with ID: '+clientId);
-        res.json(db.clients[ind]);
+    getClientById: async (req, res) => {
+        try {
+            let resp = await clientMod.findById(req.params.clientId);
+            if (!resp) resp = ('Document NOT found ! ID: ' + req.params.clientId);
+            res.json(resp);
+        } catch (e) {
+            res.json(e);
+            //
+        }
     },
 
     newClient: async (req, res) => {
-        const newId = clientDbSrv.getNewId(db.clients);
-        db.clients.push({id: newId, ...req.body});
-        await fspw.writeFileJSON(dbPath, db);
-        res.json(db.clients);
+        try {
+            res.json(await clientMod.create(req.body));
+        } catch (e) {
+            res.json(e);
+        }
     },
 
     updClientById: async (req, res) => {
-        const clientId = +req.params.clientId;
-        const ind = clientDbSrv.getIndByFieldVal(db.clients, 'id', clientId);
-        if (!ind) res.send('ERROR: no record with ID:'+clientId);
-        db.clients[ind]={id: clientId, ...req.body};
-        await fspw.writeFileJSON(dbPath, db);
-        res.json(db.clients[ind]);
+        try {
+            let resp = await clientMod.findByIdAndUpdate(req.params.clientId, req.body);
+            if (!resp) resp = ('Document NOT found ! ID: ' + req.params.clientId);
+            res.json(resp);
+        } catch (e) {
+            res.json(e);
+            //res.send('ERROR: no record with ID: '+clientId);
+        }
     },
 
     delClientById: async (req, res) => {
-        const clientId = +req.params.clientId;
-        const ind = clientDbSrv.getIndByFieldVal(db.clients, 'id', clientId);
-        if (!ind) res.send('ERROR: no record with ID:'+clientId);
-        db.clients.splice(ind, 1);
-        await fspw.writeFileJSON(dbPath, db);
-        res.json(db.clients);
+        try {
+            let resp = await clientMod.findByIdAndDelete(req.params.clientId);
+            if (!resp) resp = ('Document NOT found ! ID: ' + req.params.clientId);
+            res.json(resp);
+        } catch (e) {
+            res.json(e);
+            //res.send('ERROR: no record with ID: '+clientId);
+        }
     }
 }
