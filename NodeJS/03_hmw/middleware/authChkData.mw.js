@@ -1,11 +1,12 @@
 //  MIDDLEWARE
 module.exports = {
 
-    fieldsExist: (req, res, next) => {
+    authFieldsExist: (req, res, next) => {
         try{
             if (!req.body.email ||
                 !req.body.password) {
-                throw new Error('"email" and "password" are mandatory fields!');
+                res.json('"email" and "password" are mandatory fields!');
+                return;
             }
             next();
         } catch (e) {

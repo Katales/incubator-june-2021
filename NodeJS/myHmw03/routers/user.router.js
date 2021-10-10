@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-// const rootCtrl = require("../controllers/root.controller");
 const chkData = require('../middleware/userChkData.mw');
 const chkConsist = require('../middleware/userChkDbConsist.mw');
 const userCtrl = require('../controllers/user.controller');
+const rootCtrl = require("../controllers/root.controller");
 
-// router.get('/', rootCtrl.getRules);
+router.get('/', rootCtrl.getRules);
 // Create
 router.post('/users', chkData.newUser, chkConsist.newUser, userCtrl.newUser);
 // Retrieve

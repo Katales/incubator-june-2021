@@ -11,9 +11,9 @@ module.exports = {
 
     getClientById: async (req, res) => {
         try {
-            let resp = await clientMod.findById(req.params.clientId);
-            if (!resp) resp = ('Document NOT found ! ID: ' + req.params.clientId);
-            res.json(resp);
+            let q = await clientMod.findById(req.params.clientId);
+            if (!q) q = ('Document NOT found ! ID: ' + req.params.clientId);
+            res.json(q);
         } catch (e) {
             res.json(e);
             //
@@ -30,23 +30,21 @@ module.exports = {
 
     updClientById: async (req, res) => {
         try {
-            let resp = await clientMod.findByIdAndUpdate(req.params.clientId, req.body);
-            if (!resp) resp = ('Document NOT found ! ID: ' + req.params.clientId);
-            res.json(resp);
+            let q = await clientMod.findByIdAndUpdate(req.params.clientId, req.body, {new: true});
+            if (!q) q = ('Document NOT found ! ID: ' + req.params.clientId);
+            res.json(q);
         } catch (e) {
             res.json(e);
-            //res.send('ERROR: no record with ID: '+clientId);
         }
     },
 
     delClientById: async (req, res) => {
         try {
-            let resp = await clientMod.findByIdAndDelete(req.params.clientId);
-            if (!resp) resp = ('Document NOT found ! ID: ' + req.params.clientId);
-            res.json(resp);
+            let q = await clientMod.findByIdAndDelete(req.params.clientId);
+            if (!q) q = ('Document NOT found ! ID: ' + req.params.clientId);
+            res.json(q);
         } catch (e) {
             res.json(e);
-            //res.send('ERROR: no record with ID: '+clientId);
         }
     }
 }
