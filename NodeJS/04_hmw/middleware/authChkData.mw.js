@@ -1,11 +1,13 @@
+const validator = require('../validators/auth.validator');
+
 //  MIDDLEWARE
 module.exports = {
 
     authFieldsExist: (req, res, next) => {
-        try{
-            if (!req.body.email ||
-                !req.body.password) {
-                res.json('"email" and "password" are mandatory fields!');
+        try {
+            const {error, value} = validator.authData.validate(req.body);
+            if (error) {
+                res.json('Validation failed! ' + error);
                 return;
             }
             next();

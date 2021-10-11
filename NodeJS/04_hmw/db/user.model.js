@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const cnst = require('../conf/constants')
+const cnst = require('../conf/constants');
 
 module.exports = mongoose.model('user',
    new mongoose.Schema({
@@ -8,7 +8,7 @@ module.exports = mongoose.model('user',
             type: String,
             required: true,
             trim: true,
-            match: /^[A-z-']{2,}$/
+            match: /^[A-z-']{2,20}$/
         },
         email: {
             type: String,

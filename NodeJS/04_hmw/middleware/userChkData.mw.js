@@ -1,17 +1,13 @@
-const userMod = require('./../db/user.model');
+const validator = require('../validators/user.validator');
 
 // *****  MIDDLEWARE
 module.exports = {
 
     newUser: async (req, res, next) => {
         try {
-            if (!allFieldsDefined(req.body)) {
-                res.json('"name", "email", "password", "userdomain" are ALL mandatory fields!');
-                return;
-            }
-            const q = await userMod.findOne({'email': req.body.email});
-            if (q) {
-                res.json('User with this email already exists');
+            const {error, value} = validator.newUserData.validate(req.body);
+            if (error) {
+                res.json('Validation failed! '+error);
                 return;
             }
             next();
@@ -22,16 +18,14 @@ module.exports = {
 
     updUserById: async (req, res, next) => {
         try {
-            if (!anyFieldDefined(req.body)) {
-                res.json('None of a collection fields was set!');
+            if (!someFieldsDefined(req.body)) {
+                res.json('None of a collection fields were set!');
                 return;
             }
-            if (req.body.email) {
-                const qq = await userMod.find({'email': req.body.email});
-                if (qq.length === 1 && req.params.userId !== qq[0]._id.toString()) {
-                    res.json(`Email ${req.body.email} belongs to another user!`);
-                    return;
-                }
+            const {error, value} = validator.updUserData.validate(req.body);
+            if (error) {
+                res.json('UpdateUserById: field validation failed! ' + error);
+                return;
             }
             next();
         } catch (e) {
@@ -40,16 +34,7 @@ module.exports = {
     }
 }
 
-function allFieldsDefined(rec) {
-    let ret = true;
-    if (rec.name === undefined) ret = ret && false;
-    if (rec.email === undefined) ret = ret && false;
-    if (rec.password === undefined) ret = ret && false;
-    if (rec.userdomain === undefined) ret = ret && false;
-    return ret;
-}
-
-function anyFieldDefined(rec) {
+function someFieldsDefined(rec) {
     if (rec.name !== undefined) return true;
     if (rec.email !== undefined) return true;
     if (rec.password !== undefined) return true;

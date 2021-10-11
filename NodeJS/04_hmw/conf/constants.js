@@ -5,5 +5,14 @@ module.exports = {
         INTERNAL: 'INTERNAL',
         RETAIL: 'RETAIL',
         B2B: 'B2B'
-    }
+    },
+    userdomain:  {
+        INTERNAL: 'INTERNAL',
+        RETAIL: 'RETAIL',
+        B2B: 'B2B'
+    },
+
+    NAME_REGEXP: new RegExp(/^[A-z-']{2,20}$/),
+    EMAIL_REGEXP: new RegExp(/^[\w-.]+@[[\w-.]+$/),
+    PASSWORD_REGEXP: new RegExp(/^[!-~]{6,20}$/)
 }
