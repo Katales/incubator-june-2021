@@ -3,11 +3,11 @@ const validator = require('../validators/user.validator');
 // *****  MIDDLEWARE
 module.exports = {
 
-    newUser: async (req, res, next) => {
+    newUser: (req, res, next) => {
         try {
-            const {error, value} = validator.newUserData.validate(req.body);
-            if (error) {
-                res.json('Validation failed! '+error);
+            const {error: valErr} = validator.newUserData.validate(req.body);
+            if (valErr) {
+                res.json('Validation failed! '+valErr);
                 return;
             }
             next();
@@ -16,15 +16,15 @@ module.exports = {
         }
     },
 
-    updUserById: async (req, res, next) => {
+    updUserById: (req, res, next) => {
         try {
             if (!someFieldsDefined(req.body)) {
                 res.json('None of a collection fields were set!');
                 return;
             }
-            const {error, value} = validator.updUserData.validate(req.body);
-            if (error) {
-                res.json('UpdateUserById: field validation failed! ' + error);
+            const {error: valErr} = validator.updUserData.validate(req.body);
+            if (valErr) {
+                res.json('UpdateUserById: field validation failed! ' + valErr);
                 return;
             }
             next();
@@ -32,11 +32,16 @@ module.exports = {
             res.json(e);
         }
     }
-}
+};
 
+/**
+ * Check if one of fields defined
+ * @param rec - object with the fields to be checked
+ * @returns {boolean} true - if at least onw field defined
+ */
 function someFieldsDefined(rec) {
-    if (rec.name !== undefined) return true;
-    if (rec.email !== undefined) return true;
-    if (rec.password !== undefined) return true;
+    if (rec.name !== undefined) {return true;}
+    if (rec.email !== undefined) {return true;}
+    if (rec.password !== undefined) {return true;}
     return rec.userdomain !== undefined;
 }

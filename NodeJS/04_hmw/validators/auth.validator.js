@@ -15,4 +15,4 @@ module.exports = {
             .trim()
             .regex(cnst.PASSWORD_REGEXP),
     })
-}
+};

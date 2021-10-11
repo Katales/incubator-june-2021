@@ -7,4 +7,4 @@ router.post('/auth/user', chkData.authFieldsExist, authCtrl.testUserCred);
 
 module.exports = {
     authRouter: router
-}
+};

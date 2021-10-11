@@ -7,7 +7,10 @@ module.exports = {
         try {
             const qq = await userMod.find().lean();
             for (let q of qq) {
-                q = miscSrv.rmFields(q, ['password', '__v']);
+                q = miscSrv.rmFields(q, [
+                    'password',
+                    '__v'
+                ]);
             }
             res.json(qq);
         } catch (e) {
@@ -18,8 +21,11 @@ module.exports = {
     getUserById: async (req, res) => {
         try {
             let q = await userMod.findById(req.params.userId).lean();
-            if (!q) q = 'Document NOT found ! ID: ' + req.params.userId;
-            q = miscSrv.rmFields(q, ['password', '__v']);
+            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
+            q = miscSrv.rmFields(q, [
+                'password',
+                '__v'
+            ]);
             res.json(q);
         } catch (e) {
             res.json(e);
@@ -34,7 +40,10 @@ module.exports = {
             if (!q) {
                 q = 'ERROR: Document wasn\'t added to DB';
             } else {
-                q = miscSrv.rmFields(q, ['password', '__v']);
+                q = miscSrv.rmFields(q, [
+                    'password',
+                    '__v'
+                ]);
             }
             res.json(q);
         } catch (e) {
@@ -45,11 +54,14 @@ module.exports = {
     updUserById: async (req, res) => {
         try {
             if (req.body.password)
-                req.body.password = await pwdSrv.mkHash(req.body.password);
+            {req.body.password = await pwdSrv.mkHash(req.body.password);}
             let q = await userMod.findByIdAndUpdate(req.params.userId, req.body,
-                                                {new: true, lean: true});
-            if (!q) q = 'Document NOT found ! ID: ' + req.params.userId;
-            q = miscSrv.rmFields(q, ['password', '__v']);
+                {new: true, lean: true});
+            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
+            q = miscSrv.rmFields(q, [
+                'password',
+                '__v'
+            ]);
             res.json(q);
         } catch (e) {
             res.json(e);
@@ -59,11 +71,14 @@ module.exports = {
     delUserById: async (req, res) => {
         try {
             let q = await userMod.findByIdAndDelete(req.params.userId).lean();
-            if (!q) q = 'Document NOT found ! ID: ' + req.params.userId;
-            q = miscSrv.rmFields(q, ['password', '__v']);
+            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
+            q = miscSrv.rmFields(q, [
+                'password',
+                '__v'
+            ]);
             res.json(q);
         } catch (e) {
             res.json(e);
         }
     }
-}
+};

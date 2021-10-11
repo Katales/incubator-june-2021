@@ -11,9 +11,21 @@
   },
   "devDependencies": {
     "eslint": "^8.0.0",
-    "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0"
+    "eslint-plugin-node": "^11.1.0",
+    "husky": "4.3.0",
+    "lint-staged": "^11.2.3"
+  },
+  "husky": {
+      "hooks": {
+          "pre-commit": "lint-staged"
+      }
+  },
+  "lint-staged": {
+      "*.js": [
+          "eslint",
+          "git add"
+      ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

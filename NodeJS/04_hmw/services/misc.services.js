@@ -3,4 +3,4 @@ module.exports = {
         fieldArr.forEach( el => delete userObj[el]);
         return userObj;
     }
-}
+};

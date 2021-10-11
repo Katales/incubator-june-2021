@@ -1,3 +1,4 @@
+// eslint-disable-next-line new-cap
 const router = require('express').Router();
 
 const chkData = require('../middleware/userChkData.mw');
@@ -16,4 +17,4 @@ router.delete('/users/:userId', userCtrl.delUserById);
 
 module.exports = {
     userRouter: router
-}
+};
