@@ -23,7 +23,7 @@ module.exports = mongoose.model('user',
         userdomain: {
             type: String,
             required: true,
-            enum: Object.values(cnst.userdom)
+            enum: Object.values(cnst.userdom) // +++++++++
         }
     },
     {timestamps: true}
