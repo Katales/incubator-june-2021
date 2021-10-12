@@ -1,4 +1,4 @@
-const userMod = require('./../db/user.model');
+const userMod = require('../db/user.model');
 
 module.exports = {
     getUsers: async (req, res) => {
@@ -12,7 +12,7 @@ module.exports = {
     getUserById: async (req, res) => {
         try {
             let q = await userMod.findById(req.params.userId);
-            if (!q) q = 'Document NOT found ! ID: ' + req.params.userId;
+            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
             res.json(q);
         } catch (e) {
             res.json(e);
@@ -31,7 +31,7 @@ module.exports = {
     updUserById: async (req, res) => {
         try {
             let q = await userMod.findByIdAndUpdate(req.params.userId, req.body, {new: true});
-            if (!q) q = 'Document NOT found ! ID: ' + req.params.userId;
+            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
             res.json(q);
         } catch (e) {
             res.json(e);
@@ -41,10 +41,10 @@ module.exports = {
     delUserById: async (req, res) => {
         try {
             let q = await userMod.findByIdAndDelete(req.params.userId);
-            if (!q) q = 'Document NOT found ! ID: ' + req.params.userId;
+            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
             res.json(q);
         } catch (e) {
             res.json(e);
         }
     }
-}
+};

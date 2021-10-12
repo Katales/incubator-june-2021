@@ -15,5 +15,7 @@ mongoose.connect(MONGO_CONNECT_URL);
 
 app.use('/', rootRouter, userRouter, authRouter);
 
-app.listen(APP_PORT, () => {console.log('NodeJS(express) is listening at http://localhost:5000/')} );
+// eslint-disable-next-line no-console
+app.listen(APP_PORT, () => {console.log('NodeJS(express) is listening at http://localhost:5000/');} );
+
 

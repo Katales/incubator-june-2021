@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const cnst = require('../conf/constants')
+const cnst = require('../conf/constants');
 
 module.exports = mongoose.model('user',
-   new mongoose.Schema({
+    new mongoose.Schema({
         name: {
             type: String,
             required: true,
@@ -26,8 +26,8 @@ module.exports = mongoose.model('user',
             required: true,
             enum: Object.values(cnst.userdom)
         }
-   },
-       {timestamps: true}
-   ),
+    },
+    {timestamps: true}
+    ),
     'user'
 );

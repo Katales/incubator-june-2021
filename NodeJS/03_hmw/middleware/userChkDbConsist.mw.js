@@ -5,7 +5,7 @@ module.exports = {
 
     newUser: async (req, res, next) => {
         try {
-            const q = await userMod.findOne({'email': req.body.email});
+            const q = await userMod.findOne({email: req.body.email});
             if (q) {
                 res.json('User with this email already exists');
                 return;
@@ -19,7 +19,7 @@ module.exports = {
     updUserById: async (req, res, next) => {
         try {
             if (req.body.email) {
-                const qq = await userMod.find({'email': req.body.email});
+                const qq = await userMod.find({email: req.body.email});
                 if (qq.length === 1 && req.params.userId !== qq[0]._id.toString()) {
                     res.json(`Email ${req.body.email} belongs to another user!`);
                     return;
@@ -30,5 +30,6 @@ module.exports = {
             res.json(e);
         }
     }
-}
+};
+
 

@@ -1,9 +1,8 @@
-const userMod = require('./../db/user.model');
 
 // *****  MIDDLEWARE
 module.exports = {
 
-    newUser: async (req, res, next) => {
+    newUser: (req, res, next) => {
         try {
             if (!allFieldsDefined(req.body)) {
                 res.json('"name", "email", "password", "userdomain" are ALL mandatory fields!');
@@ -15,7 +14,7 @@ module.exports = {
         }
     },
 
-    updUserById: async (req, res, next) => {
+    updUserById: (req, res, next) => {
         try {
             if (!anyFieldDefined(req.body)) {
                 res.json('None of a collection fields was set!');
@@ -26,20 +25,20 @@ module.exports = {
             res.json(e);
         }
     }
-}
+};
 
 function allFieldsDefined(rec) {
     let ret = true;
-    if (rec.name === undefined) ret = ret && false;
-    if (rec.email === undefined) ret = ret && false;
-    if (rec.password === undefined) ret = ret && false;
-    if (rec.userdomain === undefined) ret = ret && false;
+    if (rec.name === undefined) {ret = ret && false;}
+    if (rec.email === undefined) {ret = ret && false;}
+    if (rec.password === undefined) {ret = ret && false;}
+    if (rec.userdomain === undefined) {ret = ret && false;}
     return ret;
 }
 
 function anyFieldDefined(rec) {
-    if (rec.name !== undefined) return true;
-    if (rec.email !== undefined) return true;
-    if (rec.password !== undefined) return true;
+    if (rec.name !== undefined) {return true;}
+    if (rec.email !== undefined) {return true;}
+    if (rec.password !== undefined) {return true;}
     return rec.userdomain !== undefined;
 }

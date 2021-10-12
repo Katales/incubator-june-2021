@@ -16,4 +16,4 @@ router.delete('/users/:userId', userCtrl.delUserById);
 
 module.exports = {
     userRouter: router
-}
+};

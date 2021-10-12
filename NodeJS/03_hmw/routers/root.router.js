@@ -6,4 +6,4 @@ router.get('/', rootCtrl.getRules);
 
 module.exports = {
     rootRouter: router
-}
+};

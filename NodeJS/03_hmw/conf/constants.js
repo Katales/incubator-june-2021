@@ -6,4 +6,4 @@ module.exports = {
         RETAIL: 'RETAIL',
         B2B: 'B2B'
     }
-}
+};
