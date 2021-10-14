@@ -56,7 +56,12 @@ module.exports = {
             if (req.body.password)
             {req.body.password = await pwdSrv.mkHash(req.body.password);}
             let q = await userMod.findByIdAndUpdate(req.params.userId, req.body,
-                {new: true, lean: true});
+                {
+                    new: true,
+                    runValidators: true,
+                    lean: true
+                }
+            );
             if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
             q = miscSrv.rmFields(q, [
                 'password',
