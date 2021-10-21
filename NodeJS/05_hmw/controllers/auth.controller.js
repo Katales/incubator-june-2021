@@ -8,12 +8,13 @@ module.exports = {
             const q = await userMod.findOne({email: req.body.email});
             if (!q ||
                 !(await pwdSrv.isPwdMatch(req.body.password, q.password)) ) {
-                throw ApiError('User/password pair is incorrect', 401);
+                // noinspection ExceptionCaughtLocallyJS
+                throw new ApiError('User/password pair is incorrect',
+                    401, 'Authentication failed.');
             }
             res.status(200).json('Authentication is OK');
         } catch (e) {
             next(e);
-            // res.json(e);
         }
     }
 };

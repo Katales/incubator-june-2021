@@ -1,4 +1,5 @@
 const validator = require('../validators/auth.validator');
+const ApiError = require('../errors/ApiError.class');
 
 //  MIDDLEWARE
 module.exports = {
@@ -7,12 +8,12 @@ module.exports = {
         try {
             const {error: valErr} = validator.authData.validate(req.body);
             if (valErr) {
-                res.json('Validation failed! ' + valErr);
-                return;
+                // noinspection ExceptionCaughtLocallyJS
+                throw new ApiError(valErr, 400, 'Field Validation failed (auth)!');
             }
             next();
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     }
 };

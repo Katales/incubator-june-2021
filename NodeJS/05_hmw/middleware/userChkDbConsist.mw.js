@@ -1,4 +1,7 @@
+// noinspection ExceptionCaughtLocallyJS
+
 const userMod = require('./../db/user.model');
+const ApiError = require("../errors/ApiError.class");
 
 // *****  MIDDLEWARE
 module.exports = {
@@ -7,12 +10,12 @@ module.exports = {
         try {
             const q = await userMod.findOne({email: req.body.email});
             if (q) {
-                res.json('User with this email already exists');
-                return;
+                throw new ApiError('User with this email already exists',
+                    400, 'Data Validation failed (user)!');
             }
             next();
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     },
 
@@ -21,13 +24,13 @@ module.exports = {
             if (req.body.email) {
                 const qq = await userMod.find({email: req.body.email});
                 if (qq.length === 1 && req.params.userId !== qq[0]._id.toString()) {
-                    res.json(`Email ${req.body.email} belongs to another user!`);
-                    return;
+                    throw new ApiError(`Email ${req.body.email} belongs to another user!`,
+                        400, 'Data Validation failed (user)!');
                 }
             }
             next();
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     }
 };

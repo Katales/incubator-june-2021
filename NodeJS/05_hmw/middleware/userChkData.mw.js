@@ -1,4 +1,7 @@
+// noinspection ExceptionCaughtLocallyJS
+
 const validator = require('../validators/user.validator');
+const ApiError = require("../errors/ApiError.class");
 
 // *****  MIDDLEWARE
 module.exports = {
@@ -7,29 +10,28 @@ module.exports = {
         try {
             const {error: valErr} = validator.newUserData.validate(req.body);
             if (valErr) {
-                res.json('Validation failed! '+valErr);
-                return;
+                throw new ApiError(valErr, 400, 'Field Validation failed (userChkData)!');
             }
             next();
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     },
 
     updUserById: (req, res, next) => {
         try {
             if (!someFieldsDefined(req.body)) {
-                res.json('None of a collection fields were set!');
-                return;
+                throw new ApiError('None of a collection fields were set!',
+                    400, 'Data Validation failed (userChkData)!');
             }
             const {error: valErr} = validator.updUserData.validate(req.body);
             if (valErr) {
-                res.json('UpdateUserById: field validation failed! ' + valErr);
-                return;
+                throw new ApiError(valErr,
+                    400, 'Field Validation failed (userChkData)!');
             }
             next();
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     }
 };

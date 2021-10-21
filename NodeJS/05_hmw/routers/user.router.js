@@ -6,14 +6,14 @@ const chkConsist = require('../middleware/userChkDbConsist.mw');
 const userCtrl = require('../controllers/user.controller');
 
 // Create
-router.post('/users', chkData.newUser, chkConsist.newUser, userCtrl.newUser);
+router.post('/', chkData.newUser, chkConsist.newUser, userCtrl.newUser);
 // Retrieve
-router.get('/users', userCtrl.getUsers);
-router.get('/users/:userId', userCtrl.getUserById);
+router.get('/', userCtrl.getUsers);
+router.get('/:userId', userCtrl.getUserById);
 // Update
-router.put('/users/:userId', chkData.updUserById, chkConsist.updUserById, userCtrl.updUserById);
+router.put('/:userId', chkData.updUserById, chkConsist.updUserById, userCtrl.updUserById);
 // Delete
-router.delete('/users/:userId', userCtrl.delUserById);
+router.delete('/:userId', userCtrl.delUserById);
 
 module.exports = {
     userRouter: router

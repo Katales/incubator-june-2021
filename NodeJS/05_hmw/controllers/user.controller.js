@@ -1,9 +1,12 @@
+// noinspection ExceptionCaughtLocallyJS
+
 const userMod = require('./../db/user.model');
 const pwdSrv = require('../services/password');
 const miscSrv = require('../services/misc.services');
+const ApiError = require("../errors/ApiError.class");
 
 module.exports = {
-    getUsers: async (req, res) => {
+    getUsers: async (req, res, next) => {
         try {
             const qq = await userMod.find().lean();
             for (let q of qq) {
@@ -14,31 +17,35 @@ module.exports = {
             }
             res.json(qq);
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     },
 
-    getUserById: async (req, res) => {
+    getUserById: async (req, res, next) => {
         try {
             let q = await userMod.findById(req.params.userId).lean();
-            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
+            if (!q) {
+                throw new ApiError(`User doesn't exist (with ID=${req.params.userId})`,
+                    400, 'Error!');
+            }
             q = miscSrv.rmFields(q, [
                 'password',
                 '__v'
             ]);
             res.json(q);
         } catch (e) {
-            res.json(e);
+            next(e);
             //
         }
     },
 
-    newUser: async (req, res) => {
+    newUser: async (req, res, next) => {
         try {
             req.body.password = await pwdSrv.mkHash(req.body.password);
             let q = (await userMod.create(req.body)).toObject();
             if (!q) {
-                q = 'ERROR: Document wasn\'t added to DB';
+                throw new ApiError('User wasn\'t added to DB',
+                    400, 'Error!');
             } else {
                 q = miscSrv.rmFields(q, [
                     'password',
@@ -47,11 +54,11 @@ module.exports = {
             }
             res.json(q);
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     },
 
-    updUserById: async (req, res) => {
+    updUserById: async (req, res, next) => {
         try {
             if (req.body.password)
             {req.body.password = await pwdSrv.mkHash(req.body.password);}
@@ -62,28 +69,34 @@ module.exports = {
                     lean: true
                 }
             );
-            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
+            if (!q) {
+                throw new ApiError(`User doesn't exist (with ID=${req.params.userId})`,
+                    400, 'Error!');
+            }
             q = miscSrv.rmFields(q, [
                 'password',
                 '__v'
             ]);
             res.json(q);
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     },
 
-    delUserById: async (req, res) => {
+    delUserById: async (req, res, next) => {
         try {
             let q = await userMod.findByIdAndDelete(req.params.userId).lean();
-            if (!q) {q = 'Document NOT found ! ID: ' + req.params.userId;}
+            if (!q) {
+                throw new ApiError(`User doesn't exist (with ID=${req.params.userId})`,
+                    400, 'Error!');
+            }
             q = miscSrv.rmFields(q, [
                 'password',
                 '__v'
             ]);
             res.json(q);
         } catch (e) {
-            res.json(e);
+            next(e);
         }
     }
 };
