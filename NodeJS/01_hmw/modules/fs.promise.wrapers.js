@@ -1,8 +1,9 @@
 // DEPENDENCIES
 const fsp = require('fs/promises');
-const path = require("path");
+// require("path");
 const fsc = require('fs').constants;
 
+/* eslint-disable no-console */
 // BODY
 const readDir = async (dirPath) => {
     try {
@@ -10,7 +11,7 @@ const readDir = async (dirPath) => {
     }catch (e) {
         console.log(`readDir> Error reading ${dirPath}:\n`,e);
     }
-}
+};
 
 const readFile = async (filePath) => {
     try {
@@ -18,11 +19,10 @@ const readFile = async (filePath) => {
     } catch (e) {
         console.log(`readFile> Error reading file ${filePath}.\n`,e);
     }
-}
+};
 
-const readFileJSON = async (filePath) => {
-    return JSON.parse((await readFile(filePath)).toString());
-}
+const readFileJSON = async (filePath) => 
+    JSON.parse((await readFile(filePath)).toString());
 
 const writeFile = async (filePath, data) => {
 // write data to file in JSON format
@@ -34,11 +34,10 @@ const writeFile = async (filePath, data) => {
         return false;
     }
     return true;
-}
+};
 
-const writeFileJSON = (filePath, data) => {
-    return writeFile(filePath, JSON.stringify(data));
-}
+const writeFileJSON = (filePath, data) =>
+    writeFile(filePath, JSON.stringify(data));
 
 const mvFile = async (srcFilePath, dstFilePath) => {
     try {
@@ -48,7 +47,7 @@ const mvFile = async (srcFilePath, dstFilePath) => {
         return false;
     }
     return true;
-}
+};
 
 const rmFile = async (filePath, options) => {
     try {
@@ -57,7 +56,7 @@ const rmFile = async (filePath, options) => {
         console.log('');
     }
     return true;
-}
+};
 
 const rmDir = async (filePath, options) => {
     try {
@@ -66,7 +65,7 @@ const rmDir = async (filePath, options) => {
         console.log('');
     }
     return true;
-}
+};
 
 const dirChk = async (dirPath) => {
 // check existence of dirPath
@@ -78,7 +77,7 @@ const dirChk = async (dirPath) => {
         return false;
     }
     return true;
-}
+};
 
 const dirChkCreate = async (dirPath) => {
 // check existence of dirPath, if absent -create one
@@ -100,7 +99,7 @@ const dirChkCreate = async (dirPath) => {
         }
     }
     return true;
-}
+};
 
 // EXPORTS
 module.exports = {
@@ -114,4 +113,4 @@ module.exports = {
     mvFile,
     rmFile,
     rmDir
-}
+};

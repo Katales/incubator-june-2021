@@ -8,7 +8,8 @@ const malePath = path.join(peoplePath, 'boyz');
 const femalePath = path.join(peoplePath, 'galz');
 
 //entry point
-main();
+/* eslint-disable no-console */
+main().then(() => {console.log('finished');});
 
 // BODY of app.js
 async function main() {
@@ -39,18 +40,16 @@ async function sortPeople2Dir(srcPath, dstPath) {
     }
 
     const srcDirCont = await fspw.readDir(srcPath);
-    if (!srcDirCont) return false;
+    if (!srcDirCont) {return false;}
 
     for (const dirItem of srcDirCont) {
-        if (!dirItem.isFile()) continue;
-        let srcFilePath = path.join(srcPath, dirItem.name);
-        let person = (await fspw.readFileJSON(srcFilePath));
+        if (!dirItem.isFile()) {continue;}
+        const srcFilePath = path.join(srcPath, dirItem.name);
+        const person = (await fspw.readFileJSON(srcFilePath));
         if (!person ||
-            person.gender !== dstGender ) continue;
+            person.gender !== dstGender ) {continue;}
 
-        if (!await fspw.mvFile(
-                srcFilePath,
-                path.join(dstPath, dirItem.name) ) ) {
+        if (!await fspw.mvFile(srcFilePath, path.join(dstPath, dirItem.name) ) ) {
             console.log(`sortPeople2Dir> CRITICAL Error,EXITING...`);
             return false;
         }
