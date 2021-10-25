@@ -1,27 +1,13 @@
-const userMod = require('../db/user.model');
 const authMod = require('../db/auth.model');
-const pwdSrv = require('../services/password');
 const tknSrv = require("../services/token.services");
 const miscSrv = require('../services/misc.services');
-const ApiError = require('../errors/ApiError.class');
-// const {normalizeMngUser} = require("../services/misc.services");
-// const {TKN} = require("../conf/constants");
-
-const testUserCred = async (email, password) => {
-    const q = await userMod.findOne({email});
-    if (!q ||
-        !(await pwdSrv.isPwdMatch(password, q.password)) ) {
-        throw new ApiError('User/password pair is incorrect',
-            401, 'Authentication failed.');
-    }
-    return q._id;
-};
+const authSrv = require('../services/auth.services');
 
 module.exports = {
 
     loginUser: async (req, res, next) => {
         try {
-            const userId = await testUserCred(req.body.email, req.body.password);
+            const userId = await authSrv.testUserCred(req.body.email, req.body.password);
             const tokenPair = tknSrv.genTokenPair();
             await authMod.create({...tokenPair, user_id: userId});
             res.status(200).json(`User ${req.body.email} logged in.`);
