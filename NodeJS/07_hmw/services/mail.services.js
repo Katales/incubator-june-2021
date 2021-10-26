@@ -24,7 +24,7 @@ const mailTransporter = nodemailer.createTransport({
 
 module.exports = {
 
-    sendMail: async (mailTo, tmplType) => {
+    sendMail: async (mailTo, tmplType, context = {}) => {
         if (!mailTmpl.TYPE[tmplType]) {
             throw new Error('sendMail: wrong tmplType='+tmplType);
         }
@@ -32,7 +32,7 @@ module.exports = {
             from: ENV.MAIL_FROM,
             to: mailTo,
             subject: mailTmpl[tmplType].SUBJ,
-            html: await tmplParser.render(mailTmpl[tmplType].NAME)
+            html: await tmplParser.render(mailTmpl[tmplType].NAME, context)
         });
     }
 };

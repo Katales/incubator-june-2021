@@ -1,3 +1,4 @@
+const userMod = require('../db/user.model');
 const authMod = require('../db/auth.model');
 const tknSrv = require("../services/token.services");
 const miscSrv = require('../services/misc.services');
@@ -12,7 +13,12 @@ module.exports = {
             const userId = await authSrv.testUserCred(req.body.email, req.body.password);
             const tokenPair = tknSrv.genTokenPair();
             await authMod.create({...tokenPair, user_id: userId});
-            await mailSrv.sendMail(req.body.email, mailTmpl.TYPE.LOGGED_IN);
+            const q = await userMod.findById(userId).lean();
+            const context = {
+                userName: q.name,
+                userEmail: req.body.email
+            };
+            await mailSrv.sendMail(req.body.email, mailTmpl.TYPE.LOGGED_IN, context);
             res.status(200).json(`User ${req.body.email} logged in.`);
         } catch (e) {
             next(e);
@@ -45,7 +51,11 @@ module.exports = {
         try{
             const accToken = req.get('Authorization');
             const {user_id: user} = await authMod.findOneAndDelete({accToken}).populate('user_id');
-            await mailSrv.sendMail(user.email, mailTmpl.TYPE.LOGGED_OUT);
+            const context = {
+                userName: user.name,
+                userEmail: user.email
+            };
+            await mailSrv.sendMail(user.email, mailTmpl.TYPE.LOGGED_OUT, context);
             res.status(200).send(`User ${user.email} logged out`);
         } catch (e) {
             next(e);
