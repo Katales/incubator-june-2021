@@ -1,7 +1,5 @@
-// const userMod = require('../db/user.model');
 const authMod = require('../db/auth.model');
 const tknSrv = require("../services/token.services");
-// const miscSrv = require('../services/misc.services');
 const authSrv = require('../services/auth.services');
 const {cronTask_heartbeat} = require("../cron");
 // const mailSrv = require('../services/mail.services');
@@ -14,12 +12,6 @@ module.exports = {
             const userId = await authSrv.testUserCred(req.body.email, req.body.password);
             const tokenPair = tknSrv.genTokenPair();
             await authMod.create({...tokenPair, user_id: userId});
-            // const q = await userMod.findById(userId).lean();
-            // const context = {
-            //     userName: q.name,
-            //     userEmail: req.body.email
-            // };
-            // await mailSrv.sendMail(req.body.email, mailTmpl.TYPE.LOGGED_IN, context);
             cronTask_heartbeat.start();
             res.status(200).json({...tokenPair, email: req.body.email, user_id: userId});
         } catch (e) {
@@ -44,7 +36,6 @@ module.exports = {
             // const resp = {...tokenPair, ...miscSrv.normalizeMngUser(q.user_id)};
             // --- case.2 - using method of authMod
             const resp = (await authMod.renewTokenPair(rfrToken)).normalize();
-
             // --- End of Cases
             res.status(200).send(resp);
             next();

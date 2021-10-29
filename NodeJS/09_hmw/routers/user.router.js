@@ -7,9 +7,18 @@ const userCtrl = require('../controllers/user.controller');
 const authMw = require('../middleware/auth.mw');
 
 // Create
-router.post('/', authMw.chkAccToken, chkData.newUser, chkConsist.newUser, userCtrl.newUser);
+router.post('/',
+    authMw.chkAccToken,
+    chkData.newUser,
+    chkConsist.newUser,
+    userCtrl.newUser
+);
 // Retrieve
-router.get('/', authMw.chkAccToken, userCtrl.getUsers);
+router.get('/',
+    authMw.chkAccToken,
+    userCtrl.getUsers
+);
+
 router.get('/:userId', authMw.chkAccToken, userCtrl.getUserById);
 
 // Update
