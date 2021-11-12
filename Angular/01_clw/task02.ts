@@ -57,4 +57,4 @@ function printAnimalInfo(animal: IAnimal): void {
 printAnimalInfo(new Cat);
 printAnimalInfo(new Bird);
 printAnimalInfo(new Fish);
-printAnimalInfo(new Animal('It moves', 'some words/sounds'));
+printAnimalInfo(new Animal('It moves', 'some sounds'));
