@@ -11,42 +11,39 @@ interface IAnimal {
     getInfo(): string;
 }
 
-class Animal implements IAnimal {
+class Cat implements IAnimal {
     moves: string;
     says: string;
-    constructor(moves: string, says: string) {
-        this.moves = moves;
-        this.says = says;
+    constructor() {
+        this.moves = 'walks';
+        this.says =  'meow';
     }
     getInfo(): string {
-        return this.moves + ' and says ' + this.says;
+        return 'Cat ' + this.moves + ' and says ' + this.says;
     }
 }
 
-class Cat extends Animal {
+class Bird implements IAnimal {
+    moves: string;
+    says: string;
     constructor() {
-        super('walks', 'meow');
+        this.moves = 'flies';
+        this.says =  'chirps';
     }
-    override getInfo(): string {
-        return 'Cat ' + super.getInfo();
+    getInfo(): string {
+        return 'Bird ' + this.moves + ' and says ' + this.says;
     }
 }
 
-class Bird extends Animal {
+class Fish implements IAnimal {
+    moves: string;
+    says: string;
     constructor() {
-        super('flies', 'tweet');
+        this.moves = 'swims';
+        this.says =  'blup';
     }
-    override getInfo(): string {
-        return 'Bird ' + super.getInfo();
-    }
-}
-
-class Fish extends Animal {
-    constructor() {
-        super('swims', 'blub');
-    }
-    override getInfo(): string {
-        return 'Fish ' + super.getInfo();
+    getInfo(): string {
+        return 'Bird ' + this.moves + ' and says ' + this.says;
     }
 }
 
@@ -57,4 +54,3 @@ function printAnimalInfo(animal: IAnimal): void {
 printAnimalInfo(new Cat);
 printAnimalInfo(new Bird);
 printAnimalInfo(new Fish);
-printAnimalInfo(new Animal('It moves', 'some sounds'));
