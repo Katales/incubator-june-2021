@@ -7,48 +7,62 @@
 // кладем в массив экземпляры классов(количество может быть любым но мин 2)
 // проходимся циклом по нему и и высчитываем площадь для каждой фигуры
 
+// ----- DEFINITIONS
 abstract class Shape {
-    side: number[];
-
-    protected constructor(sides: number[]) {
-        this.side = [...sides];
-    }
+    protected constructor() {}
 
     abstract area(): number;
 
-    perimeter(): number {
-        return this.side.reduce((sum: number, element: number) => sum + element);
+    abstract perimeter(): number;
+
+    getShapeName(): string {
+        return (<any>this).constructor.name;
     }
 }
 
 class Triangle extends Shape {
-    constructor(sides: number[]) {
-        super(sides);
+    constructor(protected a: number, protected b: number, protected c: number) {
+        super();
     }
+    
+    perimeter(): number {
+        return this.a + this.b + this.c;
+    }
+
     area(): number {
         const sp = this.perimeter() / 2;
-        return Math.sqrt( sp * (sp - this.side[0]) * (sp - this.side[1]) * (sp - this.side[2]));
+        return Math.sqrt( sp * (sp - this.a) * (sp - this.b) * (sp - this.c));
     }
 }
 
 class Rectangle extends Shape {
-    constructor(sides: number[]) {
-        super([...sides, ...sides]);
+    constructor(protected a: number, protected b: number) {
+        super();
     }
 
+    perimeter(): number {
+        return (this.a + this.b) * 2;
+    }
+    
     area(): number {
-        return this.side[0] * this.side[1];
+        return this.a * this.b;
     }
 }
 
+// ----- program BODY
 const shapes = [
-    new Triangle( [6, 8, 10]),
-    new Triangle([3, 4, 5]),
-    new Rectangle([2, 5]),
-    new Rectangle([7, 5]),
-    new Triangle([13, 14, 15])
+    new Triangle( 6, 8, 10),
+    new Triangle(3, 4, 5),
+    new Rectangle(2, 5),
+    new Rectangle(7, 5),
+    new Triangle(13, 14, 15)
 ];
 
 for (const shape of shapes) {
-    console.log('Perimeter=', shape.perimeter(), 'area=', shape.area());
+    console.log(shape.getShapeName(),'perimeter=', shape.perimeter(), 'area=', shape.area());
 }
+
+const a: number = 12;
+console.log( a.toString());
+console.log(a as unknown as string);
+console.log(<string><unknown>a);

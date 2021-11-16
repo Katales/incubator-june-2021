@@ -40,7 +40,7 @@ class Fish implements IAnimal {
     says: string;
     constructor() {
         this.moves = 'swims';
-        this.says =  'blup';
+        this.says =  'blub';
     }
     getInfo(): string {
         return 'Bird ' + this.moves + ' and says ' + this.says;
