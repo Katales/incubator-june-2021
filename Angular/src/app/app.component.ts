@@ -10,7 +10,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    console.log('>> ngOnInit started');
+    console.log('>> ngOnInit started ');
   }
 
 }
