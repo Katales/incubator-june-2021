@@ -5,7 +5,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { UsersComponent } from './components/users/users.component';
-import { PostsComponent } from './components/posts/posts.component';
+import { PostsByUserComponent } from './components/postsByUser/postsByUser.component';
 import { PostComponent } from './components/post/post.component';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { PostComponent } from './components/post/post.component';
     AppComponent,
     UsersComponent,
     UserComponent,
-    PostsComponent,
+    PostsByUserComponent,
     PostComponent
   ],
   imports: [

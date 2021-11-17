@@ -12,7 +12,9 @@ export class UsersComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(protected userService: UserService) { }
+  constructor(
+    protected userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((retVal) => {

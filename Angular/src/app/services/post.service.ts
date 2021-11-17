@@ -9,7 +9,7 @@ import {Post} from "../model/post";
 })
 
 export class PostService {
-  private siteUrl: string = 'https://jsonplaceholder.typicode.com/posts/';
+  private siteUrl: string = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(protected httpCl: HttpClient) { }
 
@@ -20,4 +20,9 @@ export class PostService {
   getPost(id: number): Observable<Post> {
     return this.httpCl.get<Post>(this.siteUrl + '/' + id);
   }
+
+  getPostsByUserId(userId: number): Observable<Post[]> {
+    return this.httpCl.get<Post[]>(this.siteUrl + '?userId=' + userId);
+  }
+
 }

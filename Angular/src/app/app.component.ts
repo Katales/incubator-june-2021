@@ -7,14 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'Angular / Homework 01';
-
-  constructor() {
-    console.log('>> constructor started');
-  }
-
-  ngOnInit(): void {
-    console.log('>> ngOnInit started');
-  }
+  title = 'Angular / Classwork 01';
 
 }
