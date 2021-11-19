@@ -9,7 +9,7 @@ async function populateDb() {
 
 }
 
-const onConnectMdb = async () => {
+const onConnecMdb = async () => {
     console.log(`Connected to MongoDB on URL: mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`);
 
     if (!(await userMod.find({})).length) {
@@ -20,5 +20,5 @@ const onConnectMdb = async () => {
 };
 
 module.exports = {
-    onConnectMdb
+    onConnecMdb
 };

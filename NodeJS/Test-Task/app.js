@@ -4,15 +4,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
+//todo: remove comments
 
+//todo: use index.js (also for ./routers)
 const {rootRouter} = require('./routers/root.router');
 const {userRouter} = require('./routers/user.router');
 const {authRouter} = require('./routers/auth.router');
 const errHandlerMain = require('./errors/error.handler');
 const ApiError = require('./errors/ApiError.class');
-const {onConnectMdb} = require("./db/db.events");
-const {cronTask_actionTknHskp} = require('./cron');
+const {onConnectDB} = require("./db/db.events");
+const {cronTask_TknHskp} = require('./cron');
 
 const {NODE_ENV, APP_PORT, ALLOWED_ORIGIN, DB_HOST, DB_PORT, DB_NAME} = process.env;
 const MONGO_CONNECT_URL= `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`;
@@ -27,9 +28,9 @@ if (NODE_ENV === 'dev') {
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 mongoose.connect(MONGO_CONNECT_URL);
-mongoose.connection.on('connected', onConnectMdb);
+mongoose.connection.on('connected', onConnectDB);
 
-app.use(helmet());
+// app.use(helmet());
 app.use(cors({ origin: _configureCors }));
 app.use(rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minute
@@ -45,13 +46,10 @@ app.use(errHandlerMain);
 app.listen(APP_PORT, () => {
     // eslint-disable-next-line no-console
     console.log(`Test-Task (API) is listening at http://localhost:${APP_PORT}/`);
-    cronTask_actionTknHskp.start();
+    cronTask_TknHskp.start();
 });
 
 function _configureCors(origin, callback) {
-    // console.log('++++++++++++++++');
-    // console.log('origin', origin);
-    // console.log('++++++++++++++++');
     if (NODE_ENV === 'dev') {
         return callback(null, true);
     }

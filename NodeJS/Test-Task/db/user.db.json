@@ -1,0 +1,46 @@
+[
+    {
+      "first_name": "Solomon",
+      "last_name" : "Samsonovich",
+      "username"  : "naukovets",
+      "email" : "auro@well.com",
+      "password"  : "wTf01_&4",
+      "user_type" : "Driver"
+    },
+
+    {
+      "first_name": "Xander",
+      "last_name" : "Volkner",
+      "username"  : "mistree",
+      "email" : "Zander@pisces.com",
+      "password"  : "wTf01_&4",
+      "user_type" : "Admin"
+    },
+
+    {
+      "first_name": "Gillian",
+      "last_name" : "Anderson",
+      "username"  : "McGill",
+      "email" : "G.Anderson@xmatter.com",
+      "password"  : "wTf01_&4",
+      "user_type" : "Driver"
+    },
+
+    {
+      "first_name": "Gavriusha",
+      "last_name" : "Obiziana",
+      "username"  : "inzhener",
+      "email" : "Obiziana.No@gawk.com",
+      "password"  : "wTf01_&4",
+      "user_type" : "Driver"
+    },
+
+    {
+      "first_name": "Oleksiy",
+      "last_name" : "Slisenko",
+      "username"  : "AleS",
+      "email" : "Oleksiy.Slisenko@gmail.com",
+      "password"  : "wTf01_&4",
+      "user_type" : "Admin"
+    }
+]
