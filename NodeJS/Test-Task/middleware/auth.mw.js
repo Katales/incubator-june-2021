@@ -1,12 +1,18 @@
 // noinspection ExceptionCaughtLocallyJS
+require('dotenv').config();
 
 const {TKN} = require("../conf/constants");
 const tknSrv = require("../services/token.services");
 const authMod = require('../db/auth.model');
 const ApiError = require("../errors/ApiError.class");
+const JWT_DISABLED = JSON.parse(process.env.JWT_DISABLED.toLowerCase());
 
 const chkAccToken = async (req, res, next) => {
     try {
+        if (JWT_DISABLED) {
+            next();
+            return;
+        }
         const accToken = req.get('Authorization');
         req.requestee = tknSrv.verifyToken(req.get('Authorization'), TKN.TYPE.ACCESS);
         const q = await authMod.findOne({accToken});
