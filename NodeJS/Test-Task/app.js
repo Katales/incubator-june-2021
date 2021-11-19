@@ -4,9 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-//todo: remove comments
 
-//todo: use index.js (also for ./routers)
 const {rootRouter} = require('./routers/root.router');
 const {userRouter} = require('./routers/user.router');
 const {authRouter} = require('./routers/auth.router');

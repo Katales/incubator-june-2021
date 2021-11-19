@@ -1,4 +1,3 @@
-//todo: update rules
 const apiRules = "How to use:</br></br>\n" +
     "(GET)<span>&emsp;</span>/users - get ALL users</br>\n" +
     "(GET)<span>&emsp;</span>/users/:username - get user by username</br>\n" +

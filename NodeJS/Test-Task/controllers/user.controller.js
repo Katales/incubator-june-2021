@@ -2,18 +2,14 @@
 
 const userMod = require('./../db/user.model');
 const pwdSrv = require('../services/password');
-const miscSrv = require('../services/misc.services');
 const ApiError = require("../errors/ApiError.class");
 const authMod = require("../db/auth.model");
 
 module.exports = {
     getUsers: async (req, res, next) => {
         try {
-            const qq = await userMod.find().lean();
-            for (let q of qq) {
-                q = miscSrv.normalizeMngUser(q);
-            }
-            res.json(qq);
+            const qq = await userMod.find();
+            res.json(qq.map(q => q.normalize()));
         } catch (e) {
             next(e);
         }

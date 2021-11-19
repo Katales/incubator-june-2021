@@ -9,13 +9,6 @@ const rmFields = (userObj, fieldArr) => {
     return userObj;
 };
 
-const normalizeMngUser = (user) =>
-    rmFields(user, [
-        'password',
-        '__v'
-    ]);
-
 module.exports = {
-    rmFields,
-    normalizeMngUser
+    rmFields
 };
