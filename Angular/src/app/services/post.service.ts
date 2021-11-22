@@ -2,27 +2,27 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
-import {Post} from "../model/post";
+import {IPost} from "../interface";
+import {API_URL} from "../constants";
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class PostService {
-  private siteUrl: string = 'https://jsonplaceholder.typicode.com/posts';
+export class PostServices {
 
   constructor(protected httpCl: HttpClient) { }
 
-  getPosts(): Observable<Post[]> {
-    return this.httpCl.get<Post[]>(this.siteUrl);
+  getPosts(): Observable<IPost[]> {
+    return this.httpCl.get<IPost[]>(API_URL.POSTS + '?userId=1'); //todo: remove (+ '?userId=1') after testing
   }
 
-  getPost(id: number): Observable<Post> {
-    return this.httpCl.get<Post>(this.siteUrl + '/' + id);
+  getPost(id: number): Observable<IPost> {
+    return this.httpCl.get<IPost>(API_URL.POSTS + '/' + id);
   }
 
-  getPostsByUserId(userId: number): Observable<Post[]> {
-    return this.httpCl.get<Post[]>(this.siteUrl + '?userId=' + userId);
+  getPostsByUserId(userId: number): Observable<IPost[]> {
+    return this.httpCl.get<IPost[]>(API_URL.POSTS + '?userId=' + userId);
   }
 
 }
