@@ -15,8 +15,10 @@ export class PostDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(value => {
+      // console.log('post-details> history.state=', history.state);
+      // console.log(this.activatedRoute);
+      // console.log(this.router.getCurrentNavigation());
       this.post = <IPost>this.router.getCurrentNavigation()?.extras.state;
-      console.log(this.post);
     })
   }
 

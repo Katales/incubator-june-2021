@@ -18,11 +18,10 @@ export class PostTitleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navPostDetails() {
-    console.log(this.post.id);
-    console.log(this.activatedRoute);
-    this.router.navigate([this.post.id],
-      {relativeTo: this.activatedRoute, state: this.post}
-    );
+  nav2PostDetails() {
+      this.router.navigate([this.post.id],
+        {relativeTo: this.activatedRoute, state: this.post}
+      );
   }
+
 }

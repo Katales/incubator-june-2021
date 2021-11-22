@@ -14,7 +14,7 @@ export class PostServices {
   constructor(protected httpCl: HttpClient) { }
 
   getPosts(): Observable<IPost[]> {
-    return this.httpCl.get<IPost[]>(API_URL.POSTS + '?userId=1'); //todo: remove (+ '?userId=1') after testing
+    return this.httpCl.get<IPost[]>(API_URL.POSTS);
   }
 
   getPost(id: number): Observable<IPost> {
