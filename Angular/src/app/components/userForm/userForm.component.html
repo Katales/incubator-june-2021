@@ -1,0 +1,31 @@
+<form [formGroup]="chooseUser_form">
+  <!--  <label>Choose user: </label>-->
+  <select formControlName="userSelector">
+    <option [value]="0">All users</option>
+    <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+  </select>
+  <button (click)="btnShow()">Show details and posts</button>
+  <button (click)="btnSet()">set Chelsie Dietrich</button>
+
+  <div>
+    Usernames:
+  </div>
+  <div formArrayName="usersArr">
+    <div *ngFor="let user of users; let i=index">
+      <!-- The repeated alias template -->
+      <label for="user-{{ i }}">{{user.name}}:</label>
+      <input id="user-{{ i }}" type="text" [formControlName]="i"
+             (blur)="onArrFld(i)"
+      >
+    </div>
+  </div>
+
+</form>
+
+<div>{{chooseUser_form.controls[1]}}</div>
+
+<div *ngIf="chooseUser_form.value['userSelector'] > 0">
+  <pre>{{users[chooseUser_form.value['userSelector']-1] | json}}</pre>
+</div>
+
+<!--<router-outlet></router-outlet>-->

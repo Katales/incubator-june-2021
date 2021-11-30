@@ -1,0 +1,27 @@
+<form [formGroup]="formTest">
+  <label> Name: &emsp;
+    <input id="name" type="text" formControlName="name">
+    <span *ngIf="formTest.controls['name'].errors">{{formTest.controls['name'].errors | json}}</span>
+  </label> <br>
+  <label [hidden]="ageFldDisabled">
+    {{ageNm}}:&emsp;<input id="{{ageNm}}" type="number" formControlName="{{ageNm}}" >
+    <span *ngIf="formTest.controls[ageNm].errors">{{formTest.controls[ageNm].errors | json}}</span>
+  </label> <br>
+  <button type="button" (click)="display()" >
+    &ensp;{{btnDisplayTxt}}&ensp;
+  </button>
+  <button type="submit" (click)="submit()" [disabled]="formTest.invalid" >
+    &ensp;{{btnSubmitTxt}}&ensp;
+  </button>
+</form>
+
+<hr>
+------------<br>
+{{formTest.value | json}} <br>
+------------<br>
+Valid: {{formTest.valid}} <br>
+Dirty: {{formTest.dirty}} <br>
+Pristine: {{formTest.pristine}} <br>
+Touched: {{formTest.touched}} <br>
+Disabled: {{formTest.disabled}} <br>
+<hr>

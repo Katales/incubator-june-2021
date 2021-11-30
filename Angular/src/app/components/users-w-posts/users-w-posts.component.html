@@ -1,7 +1,0 @@
-<a routerLink=".."><- get back</a>
-
-<div *ngFor="let user of users">
-  <app-user [user]="user" [scope]="'all'"></app-user>
-  <app-posts #child [posts]="posts" [userId]="user.id" [scope]="'title'"></app-posts>
-  <hr>
-</div>

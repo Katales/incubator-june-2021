@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  title = 'Angular / Classwork 02';
+  title = '[Angular / 03_homework]';
 
   constructor() { }
 
