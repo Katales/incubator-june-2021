@@ -1,0 +1,20 @@
+.user_form {
+  margin: 20px 0 0 0;
+}
+
+.uf_tablePt {
+  display: grid;
+  grid-template-columns: 100px 170px;
+  grid-auto-flow: row;
+}
+
+.uf_buttonPt {
+  margin: 16px 0 0 0;
+  width: 270px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.uf_buttonPt > button {
+  width: 100px;
+}

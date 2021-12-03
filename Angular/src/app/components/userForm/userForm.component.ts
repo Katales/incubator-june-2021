@@ -15,19 +15,14 @@ export class UserFormComponent implements OnInit {
 
   chooseUser_form = new FormGroup({
     userSelector: new FormControl( 0),
-    usersArr: this.fb.array([
-    ])
-
+    // usersArr: this.fb.array([])
   });
 
-
-  selUser: IUser = <IUser>{};
-
-  user_form = new FormGroup({
-    selUserId: new FormControl(this.selUser.id),
-    selUserName: new FormControl(this.selUser.name),
-    selUserUsername: new FormControl(this.selUser.username),
-    selUserEmail: new FormControl(this.selUser.email),
+  user_form = this.fb.group({
+    id: { value: '', disabled: true},
+    name: '',
+    username: '',
+    email: '',
   });
 
   constructor(private actRoute: ActivatedRoute, private fb: FormBuilder) {
@@ -36,13 +31,27 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
     this.actRoute.data.subscribe(data => {
       this.users = data['users'];
-      for (let user of this.users) {
-        const usersArrHnd = (this.chooseUser_form.get('usersArr') as FormArray);
-        usersArrHnd.push(this.fb.control(user.username));
-      }
+      // fill FormArray controls
+      // for (let user of this.users) {
+      //   const usersArrHnd = (this.chooseUser_form.get('usersArr') as FormArray);
+      //   usersArrHnd.push(this.fb.control(user.username));
+      // }
     });
+    this.chooseUser_form.controls['userSelector'].valueChanges.subscribe(
+      val => {
+        val = + val;
+        console.log(val);
+        if (!val) return; else val -= 1;
+        this.user_form.setValue(
+          { id: this.users[val].id,
+            username: this.users[val].username,
+            name: this.users[val].name,
+            email: this.users[val].email
+          }
+        );
+      }
+    );
 
-    this.selUser.id = 1;
 
   }
 
@@ -55,11 +64,14 @@ export class UserFormComponent implements OnInit {
   }
 
   btnShow(): void {
-    console.log(this.chooseUser_form.controls['userSelector'].value);
-    console.log(this.chooseUser_form.controls);
+    console.log(this.chooseUser_form.value);
+    console.log(this.user_form.value);
+    this.users[1].name = 'Winfried Scotter';
+    this.user_form
   }
+
   onArrFld(i: number) {
-    console.log('ArrFld:', <IUser>this.chooseUser_form.controls['usersArr'].value[i],
+    console.log('ArrFld:', <IUser>this.chooseUser_form.value['usersArr'][i],
                 `users[${i}]:`, this.users[i].username
     );
   }

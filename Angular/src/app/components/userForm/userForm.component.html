@@ -1,29 +1,43 @@
-<form [formGroup]="chooseUser_form">
-  <!--  <label>Choose user: </label>-->
-  <select formControlName="userSelector">
+<form [formGroup]="chooseUser_form" xmlns="http://www.w3.org/1999/html">
+  <label>Choose user:
+  <select formControlName="userSelector" >
     <option [value]="0">All users</option>
     <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
   </select>
+  </label>
   <button (click)="btnShow()">Show details and posts</button>
   <button (click)="btnSet()">set Chelsie Dietrich</button>
-
-  <div>
-    Usernames:
-  </div>
-  <div formArrayName="usersArr">
-    <div *ngFor="let user of users; let i=index">
-      <!-- The repeated alias template -->
-      <label for="user-{{ i }}">{{user.name}}:</label>
-      <input id="user-{{ i }}" type="text" [formControlName]="i"
-             (blur)="onArrFld(i)"
-      >
-    </div>
-  </div>
-
+<!--    Usernames:-->
+<!--  <div formArrayName="usersArr">-->
+<!--    <div *ngFor="let user of users; let i=index">-->
+<!--      &lt;!&ndash; The repeated alias template &ndash;&gt;-->
+<!--      <label for="user-{{ i }}">{{user.name}}:</label>-->
+<!--      <input id="user-{{ i }}" type="text" [formControlName]="i"-->
+<!--             (blur)="onArrFld(i)"-->
+<!--      >-->
+<!--    </div>-->
+<!--  </div>-->
 </form>
+<hr>
+<form [formGroup]="user_form" class="user_form">
+  <div class="uf_tablePt">
+      <label for="id"> User ID:&emsp;</label>
+      <input type="text" formControlName="id" id="id">
 
-<div>{{chooseUser_form.controls[1]}}</div>
+      <label for="name"> Name:&emsp;</label>
+      <input type="text" formControlName="name" id="name">
 
+      <label for="username"> Username:&emsp;</label>
+      <input type="text" formControlName="username" id="username">
+
+      <label for="email"> e-mail:&emsp;</label>
+      <input type="text" formControlName="email" id="email">
+  </div>
+  <div class="uf_buttonPt">
+    <button [disabled]="user_form.value['id'].trim() === ''" >Edit</button>
+    <button>Save</button>
+  </div>
+</form>
 <div *ngIf="chooseUser_form.value['userSelector'] > 0">
   <pre>{{users[chooseUser_form.value['userSelector']-1] | json}}</pre>
 </div>
