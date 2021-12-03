@@ -7,16 +7,6 @@
   </label>
   <button (click)="btnShow()">Show details and posts</button>
   <button (click)="btnSet()">set Chelsie Dietrich</button>
-<!--    Usernames:-->
-<!--  <div formArrayName="usersArr">-->
-<!--    <div *ngFor="let user of users; let i=index">-->
-<!--      &lt;!&ndash; The repeated alias template &ndash;&gt;-->
-<!--      <label for="user-{{ i }}">{{user.name}}:</label>-->
-<!--      <input id="user-{{ i }}" type="text" [formControlName]="i"-->
-<!--             (blur)="onArrFld(i)"-->
-<!--      >-->
-<!--    </div>-->
-<!--  </div>-->
 </form>
 <hr>
 <form [formGroup]="user_form" class="user_form">
@@ -34,11 +24,11 @@
       <input type="text" formControlName="email" id="email">
   </div>
   <div class="uf_buttonPt">
-    <button [disabled]="user_form.value['id'].trim() === ''" >Edit</button>
-    <button>Save</button>
+    <button (click)="btnEdit()" [disabled]="selUserId < 1 || isEditMode" >Edit</button>
+    <button (click)="btnSave()" [disabled]="!isEditMode">Save</button>
   </div>
 </form>
-<div *ngIf="chooseUser_form.value['userSelector'] > 0">
+<div *ngIf="selUserId > 0">
   <pre>{{users[chooseUser_form.value['userSelector']-1] | json}}</pre>
 </div>
 

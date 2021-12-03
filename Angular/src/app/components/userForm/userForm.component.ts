@@ -10,16 +10,17 @@ import {ReactiveFormsModule, FormControl, FormGroup, FormBuilder, FormArray} fro
 })
 export class UserFormComponent implements OnInit {
 
-  users: IUser[];
-  // userSel = new FormControl(1);
+  users: IUser[] = [];
+  selUserId: number = 3;
+  isEditMode: boolean = false;
 
   chooseUser_form = new FormGroup({
-    userSelector: new FormControl( 0),
+    userSelector: new FormControl(this.selUserId),
     // usersArr: this.fb.array([])
   });
 
   user_form = this.fb.group({
-    id: { value: '', disabled: true},
+    id: {value: '', disabled: true},
     name: '',
     username: '',
     email: '',
@@ -30,25 +31,20 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.actRoute.data.subscribe(data => {
-      this.users = data['users'];
-      // fill FormArray controls
-      // for (let user of this.users) {
-      //   const usersArrHnd = (this.chooseUser_form.get('usersArr') as FormArray);
-      //   usersArrHnd.push(this.fb.control(user.username));
-      // }
+      data['users'].forEach( (user: any, i: number) => {
+        delete user.address;
+        delete user.company;
+        delete user.phone;
+        delete user.website;
+        this.users.push(<IUser>user);
+      });
+      this.fillUser_form(this.selUserId);
     });
+
     this.chooseUser_form.controls['userSelector'].valueChanges.subscribe(
-      val => {
-        val = + val;
-        console.log(val);
-        if (!val) return; else val -= 1;
-        this.user_form.setValue(
-          { id: this.users[val].id,
-            username: this.users[val].username,
-            name: this.users[val].name,
-            email: this.users[val].email
-          }
-        );
+      selUserId => {
+        this.selUserId = + selUserId;
+        this.fillUser_form(this.selUserId);
       }
     );
 
@@ -66,13 +62,32 @@ export class UserFormComponent implements OnInit {
   btnShow(): void {
     console.log(this.chooseUser_form.value);
     console.log(this.user_form.value);
+    console.log('>>', this.user_form.value['id'], '<<');
+    console.log(this.users[1]);
     this.users[1].name = 'Winfried Scotter';
     this.user_form
   }
 
-  onArrFld(i: number) {
-    console.log('ArrFld:', <IUser>this.chooseUser_form.value['usersArr'][i],
-                `users[${i}]:`, this.users[i].username
-    );
+  btnEdit(): void {
+    this.isEditMode = true;
+    console.log('Edit mode:', this.isEditMode);
+  }
+
+  btnSave(): void {
+    this.isEditMode = false;
+    console.log('Edit mode:', this.isEditMode);
+  }
+
+  private fillUser_form(userId: number): void {
+    if (userId) {
+      userId -= 1;
+      this.user_form.setValue(
+        <IUser>this.users[userId]
+      );
+    } else {
+      this.user_form.setValue(
+        {id: '', username: '', name: '', email: ''}
+      );
+    }
   }
 }
