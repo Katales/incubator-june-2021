@@ -1,35 +1,68 @@
 <form [formGroup]="chooseUser_form" xmlns="http://www.w3.org/1999/html">
   <label>Choose user:
-  <select formControlName="userSelector" >
+  <select formControlName="userSelector">
     <option [value]="0">All users</option>
     <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
   </select>
   </label>
   <button (click)="btnShow()">Show details and posts</button>
+  <br>
   <button (click)="btnSet()">set Chelsie Dietrich</button>
 </form>
 <hr>
-<form [formGroup]="user_form" class="user_form">
+
+<form [formGroup]="user_form" class="user_form" (submit)="submitStub()">
+
   <div class="uf_tablePt">
       <label for="id"> User ID:&emsp;</label>
       <input type="text" formControlName="id" id="id">
+      <p class="error_text">{{ user_form.controls['id'].errors ? getErrorText('id') : '' }}</p>
 
       <label for="name"> Name:&emsp;</label>
       <input type="text" formControlName="name" id="name">
+      <p class="error_text">{{ user_form.controls['name'].errors ? getErrorText('name') : '' }}</p>
 
       <label for="username"> Username:&emsp;</label>
       <input type="text" formControlName="username" id="username">
+      <p class="error_text">{{ user_form.controls['username'].errors ? getErrorText('username') : '' }}</p>
 
       <label for="email"> e-mail:&emsp;</label>
       <input type="text" formControlName="email" id="email">
+      <p class="error_text">{{ user_form.controls['email'].errors ? getErrorText('email') : '' }}</p>
   </div>
-  <div class="uf_buttonPt">
-    <button (click)="btnEdit()" [disabled]="selUserId < 1 || isEditMode" >Edit</button>
-    <button (click)="btnSave()" [disabled]="!isEditMode">Save</button>
+
+  <div class="uf_btn-container">
+    <div class="uf_buttonPt" *ngIf="!isEditMode">
+      <button class="uf_btn"
+              (click)="btnEdit()"
+              [disabled]="selUserId < 1" >
+        Edit
+      </button>
+    </div>
+
+    <div class="uf_buttonPt" *ngIf="isEditMode">
+      <button type="submit" disabled style="display: none"></button>
+      <button class="uf_btn"
+              (click)="btnCancel()">
+        Cancel
+      </button>
+      <button class="uf_btn"
+              (click)="btnSave()"
+              [disabled]="user_form.invalid || user_form.pristine">
+        Save
+      </button>
+    </div>
+    <div class="error_text" *ngIf="user_form.errors">
+      {{user_form.errors['error']}}
+    </div>
   </div>
+
 </form>
-<div *ngIf="selUserId > 0">
-  <pre>{{users[chooseUser_form.value['userSelector']-1] | json}}</pre>
-</div>
+
+<!--  <button (click)="btnShowUserForm()">show</button>-->
+
+<!--<div *ngIf="selUserId > 0">-->
+<!--  <pre>{{users[chooseUser_form.value['userSelector']-1] | json}}</pre>-->
+<!--</div>-->
 
 <!--<router-outlet></router-outlet>-->

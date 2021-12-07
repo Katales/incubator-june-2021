@@ -1,20 +1,33 @@
+
 .user_form {
   margin: 20px 0 0 0;
 }
 
 .uf_tablePt {
   display: grid;
-  grid-template-columns: 100px 170px;
+  grid-template-columns: 100px 170px 500px;
   grid-auto-flow: row;
 }
 
-.uf_buttonPt {
+.uf_btn-container {
   margin: 16px 0 0 0;
-  width: 270px;
+  flex-flow: row;
+  display: grid;
+
+  grid-template-columns: 270px 250px;
+}
+
+.uf_buttonPt {
   display: flex;
   justify-content: space-evenly;
 }
 
-.uf_buttonPt > button {
+.uf_btn {
   width: 100px;
+}
+
+.error_text {
+  color: tomato;
+  margin: 0 0 0 5px;
+  align-content: center;
 }
