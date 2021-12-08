@@ -12,6 +12,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import {UsersResolveService,
         PostsResolveService} from "./services/";
+import {UserFormComponent} from "./components/userForm/userForm.component";
 
 const routes: Route[] = [
   { path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const routes: Route[] = [
   declarations: [
     AppComponent,
     HomeComponent,
+    UserFormComponent,
     UsersComponent,
     UsersWPostsComponent,
     UserComponent,
