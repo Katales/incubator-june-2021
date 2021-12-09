@@ -1,6 +1,5 @@
-
-.user_form {
-  margin: 20px 0 0 0;
+form {
+  margin: 10px 0;
 }
 
 .uf_tablePt {
@@ -10,10 +9,9 @@
 }
 
 .uf_btn-container {
-  margin: 16px 0 0 0;
+  margin: 16px 0 ;
   flex-flow: row;
   display: grid;
-
   grid-template-columns: 270px 250px;
 }
 

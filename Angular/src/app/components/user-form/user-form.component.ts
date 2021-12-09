@@ -16,9 +16,9 @@ import {IUser} from "../../interface";
 import {USERNAME} from "../../constants";
 
 @Component({
-  selector: 'app-form-react',
-  templateUrl: './userForm.component.html',
-  styleUrls: ['./userForm.component.css']
+  selector: 'app-user-form',
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.css']
 })
 
 

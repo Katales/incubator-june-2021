@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import {Route, RouterModule} from "@angular/router";
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -12,11 +13,24 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import {UsersResolveService,
         PostsResolveService} from "./services/";
-import {UserFormComponent} from "./components/userForm/userForm.component";
+import {UserFormComponent} from "./components/user-form/user-form.component";
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 const routes: Route[] = [
   { path: '', component: HomeComponent},
-  { path: 'users', component: UsersComponent},
+  { path: 'posts',
+    component: PostsComponent,
+    resolve: {posts: PostsResolveService},
+    children: [
+      { path: ':postId',
+        component: PostDetailsComponent,
+      }
+    ]
+  },
+  { path: 'users',
+    component: UsersComponent,
+    resolve: {users: UsersResolveService, posts: PostsResolveService}
+  },
   { path: 'users-with-posts', component: UsersWPostsComponent,
     resolve: {users: UsersResolveService, posts: PostsResolveService} }
 ];
@@ -31,11 +45,13 @@ const routes: Route[] = [
     UserComponent,
     PostsComponent,
     PostComponent,
+    PostDetailsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

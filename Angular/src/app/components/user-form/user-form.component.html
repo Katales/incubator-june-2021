@@ -1,9 +1,9 @@
 <form [formGroup]="chooseUser_form" xmlns="http://www.w3.org/1999/html">
   <label>Choose user:
-  <select formControlName="userSelector">
-    <option [value]="0">All users</option>
-    <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
-  </select>
+    <select formControlName="userSelector">
+      <option [value]="0">All users</option>
+      <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+    </select>
   </label>
   <button (click)="btnShow()">Show details and posts</button>
   <br>
@@ -14,21 +14,21 @@
 <form [formGroup]="user_form" class="user_form" (submit)="submitStub()">
 
   <div class="uf_tablePt">
-      <label for="id"> User ID:&emsp;</label>
-      <input type="text" formControlName="id" id="id">
-      <p class="error_text">{{ user_form.controls['id'].errors ? getErrorText('id') : '' }}</p>
+    <label for="id"> User ID:&emsp;</label>
+    <input type="text" formControlName="id" id="id">
+    <p class="error_text">{{ user_form.controls['id'].errors ? getErrorText('id') : '' }}</p>
 
-      <label for="name"> Name:&emsp;</label>
-      <input type="text" formControlName="name" id="name">
-      <p class="error_text">{{ user_form.controls['name'].errors ? getErrorText('name') : '' }}</p>
+    <label for="name"> Name:&emsp;</label>
+    <input type="text" formControlName="name" id="name">
+    <p class="error_text">{{ user_form.controls['name'].errors ? getErrorText('name') : '' }}</p>
 
-      <label for="username"> Username:&emsp;</label>
-      <input type="text" formControlName="username" id="username">
-      <p class="error_text">{{ user_form.controls['username'].errors ? getErrorText('username') : '' }}</p>
+    <label for="username"> Username:&emsp;</label>
+    <input type="text" formControlName="username" id="username">
+    <p class="error_text">{{ user_form.controls['username'].errors ? getErrorText('username') : '' }}</p>
 
-      <label for="email"> e-mail:&emsp;</label>
-      <input type="text" formControlName="email" id="email">
-      <p class="error_text">{{ user_form.controls['email'].errors ? getErrorText('email') : '' }}</p>
+    <label for="email"> e-mail:&emsp;</label>
+    <input type="text" formControlName="email" id="email">
+    <p class="error_text">{{ user_form.controls['email'].errors ? getErrorText('email') : '' }}</p>
   </div>
 
   <div class="uf_btn-container">

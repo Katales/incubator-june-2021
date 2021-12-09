@@ -5,7 +5,11 @@ import {UserServices} from "../../services";
 
 @Component({
   selector: 'app-users',
-  template: '<app-user *ngFor="let user of users" [user]="user" [scope]="\'title\'"> </app-user>',
+  template:`<div><a routerLink=".."> <= Get back </a></div>
+            <hr>
+            <app-user-form></app-user-form>
+            <hr>
+            <app-user *ngFor="let user of users" [user]="user" [scope]="\'title\'"> </app-user>`,
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {

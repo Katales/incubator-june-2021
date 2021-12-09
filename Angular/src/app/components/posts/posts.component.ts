@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 import {IPost, IUser} from "../../interface";
+import {PostServices} from "../../services";
 
 @Component({
   selector: 'app-posts',
@@ -12,19 +13,30 @@ export class PostsComponent implements OnInit {
 
   @Input() posts: IPost[];
   @Input() userId: number;
-  @Input() scope: string;
+  @Input() scope: string = 'title';
   @Input() users: IUser[];
 
-  constructor(private actRoute: ActivatedRoute) { }
+  constructor(private actRoute: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.actRoute.data.subscribe(data => {
       if (this.userId) {
-        this.posts = data['posts'].filter( (el: IPost) => el.userId === this.userId);
+        this.posts = data['posts'].filter((el: IPost) => el.userId === this.userId);
       } else {
         this.posts = data['posts'];
       }
     });
+  }
+
+  navMoreDetails(postId: number): void {
+    this.router.navigate(
+      [postId],
+      {
+        relativeTo: this.actRoute,
+        state: {post: this.posts[postId - 1]}
+      }
+    );
   }
 
 }
