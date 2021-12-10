@@ -17,6 +17,7 @@ import {UserFormComponent} from "./components/user-form/user-form.component";
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { PostDetailsSrvComponent } from './components/post-details-srv/post-details-srv.component';
 import { PostsClwComponent } from './components/posts-clw/posts-clw.component';
+import {Level2routGuard} from "./components/guards/level2rout.guard";
 
 const routes: Route[] = [
   { path: '', component: HomeComponent},
@@ -35,6 +36,7 @@ const routes: Route[] = [
     children: [
       { path: ':postId',
         component: PostDetailsSrvComponent,
+        canActivate: [Level2routGuard]
       }
     ]
   },
