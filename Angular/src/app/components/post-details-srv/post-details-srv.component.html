@@ -1,0 +1,7 @@
+<div *ngIf="scope !== 'body'">
+  [{{post?.id}}] {{post?.title}}
+</div>
+<div *ngIf="scope !== 'title'">
+  (UserID: {{post?.userId}}) &emsp; body:{{post?.body}}
+</div>
+

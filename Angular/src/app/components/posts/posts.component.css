@@ -1,8 +1,5 @@
 div{
-  /*color: tomato;*/
   display: flex;
-  /*align-items: center;*/
-  /*flex-flow: row;*/
 }
 
 div > button {

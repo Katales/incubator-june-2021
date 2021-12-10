@@ -15,6 +15,8 @@ import {UsersResolveService,
         PostsResolveService} from "./services/";
 import {UserFormComponent} from "./components/user-form/user-form.component";
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { PostDetailsSrvComponent } from './components/post-details-srv/post-details-srv.component';
+import { PostsClwComponent } from './components/posts-clw/posts-clw.component';
 
 const routes: Route[] = [
   { path: '', component: HomeComponent},
@@ -24,6 +26,15 @@ const routes: Route[] = [
     children: [
       { path: ':postId',
         component: PostDetailsComponent,
+      }
+    ]
+  },
+  { path: 'posts-clw',
+    component: PostsClwComponent,
+    resolve: {posts: PostsResolveService},
+    children: [
+      { path: ':postId',
+        component: PostDetailsSrvComponent,
       }
     ]
   },
@@ -46,6 +57,8 @@ const routes: Route[] = [
     PostsComponent,
     PostComponent,
     PostDetailsComponent,
+    PostDetailsSrvComponent,
+    PostsClwComponent,
   ],
   imports: [
     BrowserModule,

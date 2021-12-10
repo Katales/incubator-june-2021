@@ -8,7 +8,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  title = 'Angular / Classwork 03';
+  title = 'Angular / 03';
 
   constructor(private router: Router, private actRoute: ActivatedRoute) {
   }
@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   nav2posts(): void {
     console.log('> home | navigate 2 posts/');
-    let prevState: any = this.router.getCurrentNavigation()?.extras.state;
     this.router.navigate(
       ['posts'],
       {relativeTo: this.actRoute}

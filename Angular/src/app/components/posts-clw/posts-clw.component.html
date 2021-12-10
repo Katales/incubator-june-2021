@@ -1,0 +1,7 @@
+<div *ngFor="let post of posts">
+  <app-post-details-srv [post]="post" [scope]="'title'"></app-post-details-srv>
+  <button (click)="nav2details_clw(post.id)">More details</button>
+</div>
+<hr>
+
+<router-outlet></router-outlet>
