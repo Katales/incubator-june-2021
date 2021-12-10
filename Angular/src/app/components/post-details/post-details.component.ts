@@ -9,26 +9,21 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class PostDetailsComponent implements OnInit {
 
-  @Input() post: IPost;
   @Input() scope: string = 'all';
+  post: IPost;
+  posts: IPost[];
 
   constructor(private actRoute: ActivatedRoute, private router: Router) {
     // @ts-ignore
-    this.post = this.router.getCurrentNavigation()?.extras.state['post'];
-    // console.log(this.post);
+    console.log('Router.getCurrentNavigation:', this.router.getCurrentNavigation());
   }
 
   ngOnInit(): void {
     this.actRoute.params.subscribe( value => {
-      console.log('actRoute: ', this.actRoute);
-      console.log('actRoute params: ', value);
+      console.log('>>> post-det (ini) | history:', history);
+      console.log('>>> post-det (ini) | actRoute:', this.actRoute);
       this.post = history.state['post'];
-      console.log('current post:', this.post);
-    } );
-
-    // this.actRoute.data.subscribe( data => {
-    //   console.log('pre-loaded data:', data);
-    // } );
+    });
   }
 
 }

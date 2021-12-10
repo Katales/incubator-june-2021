@@ -29,7 +29,7 @@ const routes: Route[] = [
   },
   { path: 'users',
     component: UsersComponent,
-    resolve: {users: UsersResolveService, posts: PostsResolveService}
+    resolve: {users: UsersResolveService}
   },
   { path: 'users-with-posts', component: UsersWPostsComponent,
     resolve: {users: UsersResolveService, posts: PostsResolveService} }

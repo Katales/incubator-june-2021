@@ -9,8 +9,8 @@ import {IPost} from "../../interface";
 })
 export class PostComponent implements OnInit {
 
+  @Input() scope: string = 'all';
   @Input() post: IPost;
-  @Input() scope: string;
 
   constructor() {
   }

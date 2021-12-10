@@ -11,10 +11,9 @@ import {PostServices} from "../../services";
 })
 export class PostsComponent implements OnInit {
 
+  @Input() scope: string = 'title';
   @Input() posts: IPost[];
   @Input() userId: number;
-  @Input() scope: string = 'title';
-  @Input() users: IUser[];
 
   constructor(private actRoute: ActivatedRoute, private router: Router) {
   }

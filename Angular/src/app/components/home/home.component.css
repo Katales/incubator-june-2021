@@ -2,6 +2,10 @@ h2 {
   color: cadetblue;
   background: cornsilk;
 }
+a[likeLink] {
+  color: -webkit-link;
+  cursor: pointer;
+}
 
 div {
   margin: 10px 3px;
