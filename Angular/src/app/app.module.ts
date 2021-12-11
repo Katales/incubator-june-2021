@@ -17,26 +17,31 @@ import {UserFormComponent} from "./components/user-form/user-form.component";
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { PostDetailsSrvComponent } from './components/post-details-srv/post-details-srv.component';
 import { PostsClwComponent } from './components/posts-clw/posts-clw.component';
-import {Level2routGuard} from "./components/guards/level2rout.guard";
+import {Level2routeGuard} from "./components/guards/level2route-guard.service";
 
 const routes: Route[] = [
   { path: '', component: HomeComponent},
   { path: 'posts',
     component: PostsComponent,
     resolve: {posts: PostsResolveService},
+    canActivate: [Level2routeGuard],
+    canActivateChild: [Level2routeGuard],
     children: [
       { path: ':postId',
         component: PostDetailsComponent,
+         canDeactivate: [Level2routeGuard],
       }
     ]
   },
   { path: 'posts-clw',
     component: PostsClwComponent,
     resolve: {posts: PostsResolveService},
+    canActivate: [Level2routeGuard],
+    canActivateChild: [Level2routeGuard],
     children: [
       { path: ':postId',
         component: PostDetailsSrvComponent,
-        canActivate: [Level2routGuard]
+        canDeactivate: [Level2routeGuard],
       }
     ]
   },

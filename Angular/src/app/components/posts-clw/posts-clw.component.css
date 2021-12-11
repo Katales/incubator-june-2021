@@ -1,16 +1,12 @@
-
 div{
-  /*color: tomato;*/
   display: flex;
-  /*align-items: center;*/
-  /*flex-flow: row;*/
+}
+
+div.descr {
+  margin: 10px 0;
 }
 
 div > button {
   height: 20px;
   margin: 4px 0 0 10px;
-}
-
-hr {
-  margin: 10px 0;
 }

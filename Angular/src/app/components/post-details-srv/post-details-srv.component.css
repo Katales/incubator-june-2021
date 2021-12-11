@@ -1,3 +1,7 @@
 div {
   padding: 3px 0;
 }
+
+div.descr {
+  margin: 10px 0;
+}

@@ -1,5 +1,19 @@
+<a routerLink=".."> <= get Back </a>
+
+<div class="descr" style="flex-flow: column;">
+  <p>
+    Active guards:
+  </p>
+  <p style="color: tomato;">
+    canActivate: [Level2routeGuard],
+  </p>
+  <p style="color: tomato;">
+    canActivateChild: [Level2routeGuard]
+  </p>
+</div>
+
 <div *ngFor="let post of posts">
-  <app-post-details-srv [post]="post" [scope]="'title'"></app-post-details-srv>
+  <app-post [post]="post" [scope]="'title'"></app-post>
   <button (click)="nav2details_clw(post.id)">More details</button>
 </div>
 <hr>
