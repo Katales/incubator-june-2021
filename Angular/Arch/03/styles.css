@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 10px 20px 10px 20px;
+}
+
+body * {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: cornflowerblue dotted underline;
+}
+
+a:visited {
+  color: #2f2ffb
+}

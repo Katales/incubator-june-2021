@@ -1,0 +1,19 @@
+<a routerLink=".."> <= get Back (from PostDetails) </a>
+
+<div class="descr" style="flex-flow: column;">
+  <p>
+    Active guards:
+  </p>
+  <p style="color: tomato;">
+    canDeactivate: [Level2routeGuard],
+  </p>
+</div>
+
+<div class="postDiv">
+  <div *ngIf="scope!=='body'">
+    [{{post?.id}}] {{post?.title}}
+  </div>
+  <div *ngIf="scope!=='title'">
+    (UserID: {{post?.userId}}) {{post?.body}}
+  </div>
+</div>

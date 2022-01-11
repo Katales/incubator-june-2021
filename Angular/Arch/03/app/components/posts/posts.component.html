@@ -1,0 +1,21 @@
+<a routerLink=".."> <= get Back </a>
+
+<div class="descr" style="flex-flow: column;">
+  <p>
+    Active guards:
+  </p>
+  <p style="color: tomato;">
+    canActivate: [Level2routeGuard],
+  </p>
+  <p style="color: tomato;">
+    canActivateChild: [Level2routeGuard]
+  </p>
+</div>
+
+<div *ngFor="let post of posts">
+  <app-post [post]="post" [scope]="scope"> </app-post>
+  <button (click)="navMoreDetails(+post.id)">More details</button>
+</div>
+
+<router-outlet></router-outlet>
+
