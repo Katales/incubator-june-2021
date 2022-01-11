@@ -1,0 +1,44 @@
+abstract class Shape {
+    abstract perimeter(): number;
+
+    abstract area(): number;
+}
+
+class Rectangle extends Shape {
+    constructor(private a: number, private b: number) {
+        super();
+    }
+
+    area(): number {
+        console.log('Area', (<any>this).constructor.name)
+        return this.a * this.b;
+    }
+
+    perimeter(): number {
+        console.log('Perimeter', (<any>this).constructor.name)
+        return (this.a + this.b) * 2;
+    }
+}
+
+class Triangle extends Shape {
+    constructor(private a: number, private b: number, private c: number) {
+        super();
+    }
+
+    perimeter(): number {
+        console.log('Perimeter', (<any>this).constructor.name)
+        return this.a + this.b + this.c
+    }
+
+    area(): number {
+        console.log('Area', (<any>this).constructor.name)
+        return (this.a + this.b + this.c) / 2 * 0.5
+    }
+}
+
+const shapes: Shape[] = [new Triangle(1, 2, 3), new Rectangle(2, 3)]
+
+for (let shape of shapes) {
+    console.log(shape.area());
+    console.log(shape.perimeter());
+}
