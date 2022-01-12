@@ -1,3 +1,4 @@
+/* eslint-disable */
 // DEPENDENCIES
 const fs = require('fs/promises');
 const fsc = require('fs').constants;
@@ -25,7 +26,7 @@ const dirChkCreate = async (dirPath) => {
         }
     }
     return true;
-}
+};
 
 const createPersonFile = async (dirPath, person) => {
 // write person's file
@@ -61,9 +62,9 @@ const createPersonFile = async (dirPath, person) => {
     //     return false;
     // }
     return true;
-}
+};
 
 module.exports = {
     dirChkCreate,
     createPersonFile,
-}
+};

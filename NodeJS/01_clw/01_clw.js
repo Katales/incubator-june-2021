@@ -39,11 +39,11 @@ const ageBnd = 20;
 main();
 
 async function main() {
-    let peoplePath = path.join(basePath, peopleDir);
+    const peoplePath = path.join(basePath, peopleDir);
 
     if (await peopleServ.dirChkCreate(peoplePath)) {
         for (const person of people) {
-            const personDir =   ( (person.gender === 'male') ? maleStemDir : femaleStemDir)
+            const personDir = ( (person.gender === 'male') ? maleStemDir : femaleStemDir)
                             + ( (person.age < ageBnd) ? 'Below' : 'Over') + ageBnd;
             const personDirPath = path.join(basePath, peopleDir, personDir);
             if (! await peopleServ.createPersonFile(personDirPath, person) ) {
